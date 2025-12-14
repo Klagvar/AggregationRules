@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "title": "Textbook Example 21.1 / 22.2",
+    "source": "Petrovsky A.B."
+  },
+  "alternatives": ["A", "B", "C"],
+  "rankings": [
+    {
+      "order": ["A", "B", "C"],
+      "voters": 23,
+      "weights": {"A": 2, "B": 4, "C": 5}
+    },
+    {
+      "order": ["B", "C", "A"],
+      "voters": 17,
+      "weights": {"A": 6, "B": 1, "C": 3}
+    },
+    {
+      "order": ["B", "A", "C"],
+      "voters": 2,
+      "weights": {"A": 4, "B": 2, "C": 7}
+    },
+    {
+      "order": ["C", "A", "B"],
+      "voters": 10,
+      "weights": {"A": 2, "B": 3, "C": 1}
+    },
+    {
+      "order": ["C", "B", "A"],
+      "voters": 8,
+      "weights": {"A": 7, "B": 5, "C": 3}
+    }
+  ],
+  "utilityProfiles": [
+    {
+      "id": "Expert-1",
+      "weight": 0.5,
+      "utilities": {"A": 0.90, "B": 0.70, "C": 0.40}
+    },
+    {
+      "id": "Expert-2",
+      "weight": 0.3,
+      "utilities": {"A": 0.40, "B": 0.80, "C": 0.60}
+    },
+    {
+      "id": "Expert-3",
+      "weight": 0.2,
+      "utilities": {"A": 0.60, "B": 0.50, "C": 0.90}
+    }
+  ]
+}
+
