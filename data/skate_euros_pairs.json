@@ -1,0 +1,196 @@
+{
+  "metadata": {
+    "title": "Euros Pairs Short Program",
+    "source": "PrefLib (00006-00000003.soc)",
+    "total_voters": 9
+  },
+  "alternatives": [
+    "Berankova Dlabola",
+    "Filonenko Marchenko",
+    "Nekrassova Mintals",
+    "Rodionova Anichenko",
+    "Kazakova Dmitriev",
+    "Asanaki Mckeever",
+    "Abitbol Bernadis",
+    "Zagorska Siudek",
+    "Bestandigova Bestandig",
+    "Berezhnaya Sikharulidze",
+    "Obertas Palamarchuk",
+    "Krasiltseva Chestnikh",
+    "Schwarz Muller",
+    "Poluliaschenko Seabrook"
+  ],
+  "rankings": [
+    {
+      "order": [
+        "Berezhnaya Sikharulidze",
+        "Abitbol Bernadis",
+        "Zagorska Siudek",
+        "Kazakova Dmitriev",
+        "Schwarz Muller",
+        "Filonenko Marchenko",
+        "Rodionova Anichenko",
+        "Berankova Dlabola",
+        "Bestandigova Bestandig",
+        "Obertas Palamarchuk",
+        "Poluliaschenko Seabrook",
+        "Asanaki Mckeever",
+        "Krasiltseva Chestnikh",
+        "Nekrassova Mintals"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Berezhnaya Sikharulidze",
+        "Abitbol Bernadis",
+        "Kazakova Dmitriev",
+        "Zagorska Siudek",
+        "Filonenko Marchenko",
+        "Schwarz Muller",
+        "Berankova Dlabola",
+        "Obertas Palamarchuk",
+        "Rodionova Anichenko",
+        "Poluliaschenko Seabrook",
+        "Asanaki Mckeever",
+        "Bestandigova Bestandig",
+        "Krasiltseva Chestnikh",
+        "Nekrassova Mintals"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Berezhnaya Sikharulidze",
+        "Abitbol Bernadis",
+        "Kazakova Dmitriev",
+        "Zagorska Siudek",
+        "Filonenko Marchenko",
+        "Schwarz Muller",
+        "Berankova Dlabola",
+        "Rodionova Anichenko",
+        "Obertas Palamarchuk",
+        "Poluliaschenko Seabrook",
+        "Asanaki Mckeever",
+        "Bestandigova Bestandig",
+        "Krasiltseva Chestnikh",
+        "Nekrassova Mintals"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Berezhnaya Sikharulidze",
+        "Abitbol Bernadis",
+        "Kazakova Dmitriev",
+        "Zagorska Siudek",
+        "Filonenko Marchenko",
+        "Schwarz Muller",
+        "Berankova Dlabola",
+        "Obertas Palamarchuk",
+        "Rodionova Anichenko",
+        "Asanaki Mckeever",
+        "Poluliaschenko Seabrook",
+        "Nekrassova Mintals",
+        "Bestandigova Bestandig",
+        "Krasiltseva Chestnikh"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Berezhnaya Sikharulidze",
+        "Abitbol Bernadis",
+        "Kazakova Dmitriev",
+        "Schwarz Muller",
+        "Filonenko Marchenko",
+        "Zagorska Siudek",
+        "Obertas Palamarchuk",
+        "Berankova Dlabola",
+        "Poluliaschenko Seabrook",
+        "Asanaki Mckeever",
+        "Rodionova Anichenko",
+        "Krasiltseva Chestnikh",
+        "Bestandigova Bestandig",
+        "Nekrassova Mintals"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Berezhnaya Sikharulidze",
+        "Abitbol Bernadis",
+        "Kazakova Dmitriev",
+        "Schwarz Muller",
+        "Zagorska Siudek",
+        "Filonenko Marchenko",
+        "Obertas Palamarchuk",
+        "Berankova Dlabola",
+        "Poluliaschenko Seabrook",
+        "Asanaki Mckeever",
+        "Rodionova Anichenko",
+        "Bestandigova Bestandig",
+        "Krasiltseva Chestnikh",
+        "Nekrassova Mintals"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Berezhnaya Sikharulidze",
+        "Abitbol Bernadis",
+        "Kazakova Dmitriev",
+        "Zagorska Siudek",
+        "Filonenko Marchenko",
+        "Schwarz Muller",
+        "Berankova Dlabola",
+        "Rodionova Anichenko",
+        "Obertas Palamarchuk",
+        "Poluliaschenko Seabrook",
+        "Bestandigova Bestandig",
+        "Asanaki Mckeever",
+        "Krasiltseva Chestnikh",
+        "Nekrassova Mintals"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Berezhnaya Sikharulidze",
+        "Abitbol Bernadis",
+        "Kazakova Dmitriev",
+        "Zagorska Siudek",
+        "Filonenko Marchenko",
+        "Schwarz Muller",
+        "Berankova Dlabola",
+        "Obertas Palamarchuk",
+        "Rodionova Anichenko",
+        "Asanaki Mckeever",
+        "Poluliaschenko Seabrook",
+        "Bestandigova Bestandig",
+        "Nekrassova Mintals",
+        "Krasiltseva Chestnikh"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Berezhnaya Sikharulidze",
+        "Abitbol Bernadis",
+        "Kazakova Dmitriev",
+        "Schwarz Muller",
+        "Zagorska Siudek",
+        "Filonenko Marchenko",
+        "Obertas Palamarchuk",
+        "Berankova Dlabola",
+        "Rodionova Anichenko",
+        "Poluliaschenko Seabrook",
+        "Asanaki Mckeever",
+        "Nekrassova Mintals",
+        "Bestandigova Bestandig",
+        "Krasiltseva Chestnikh"
+      ],
+      "voters": 1
+    }
+  ]
+}
