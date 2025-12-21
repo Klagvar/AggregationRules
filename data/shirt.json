@@ -1,0 +1,506 @@
+{
+  "metadata": {
+    "title": "T-Shirt Design",
+    "source": "PrefLib (00012-00000001.soc)",
+    "data_type": "soc",
+    "has_ties": false,
+    "is_complete": true,
+    "total_voters": 30,
+    "num_alternatives": 11
+  },
+  "alternatives": [
+    "Australia",
+    "Braille",
+    "Brush Strokes",
+    "Exponential",
+    "College",
+    "Graph Coloring",
+    "Red",
+    "Simple",
+    "Star Trek",
+    "TSP",
+    "VRP"
+  ],
+  "rankings": [
+    {
+      "order": [
+        "TSP",
+        "Graph Coloring",
+        "Red",
+        "Simple",
+        "VRP",
+        "College",
+        "Brush Strokes",
+        "Braille",
+        "Australia",
+        "Star Trek",
+        "Exponential"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Australia",
+        "TSP",
+        "VRP",
+        "Star Trek",
+        "Graph Coloring",
+        "Red",
+        "Brush Strokes",
+        "College",
+        "Simple",
+        "Braille",
+        "Exponential"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "VRP",
+        "TSP",
+        "Australia",
+        "Brush Strokes",
+        "Graph Coloring",
+        "Simple",
+        "College",
+        "Red",
+        "Exponential",
+        "Star Trek",
+        "Braille"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "TSP",
+        "Brush Strokes",
+        "College",
+        "Simple",
+        "VRP",
+        "Australia",
+        "Graph Coloring",
+        "Braille",
+        "Exponential",
+        "Red",
+        "Star Trek"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Australia",
+        "Graph Coloring",
+        "TSP",
+        "VRP",
+        "Brush Strokes",
+        "Simple",
+        "Braille",
+        "Exponential",
+        "College",
+        "Red",
+        "Star Trek"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Braille",
+        "College",
+        "Australia",
+        "Simple",
+        "Graph Coloring",
+        "TSP",
+        "Red",
+        "Exponential",
+        "Star Trek",
+        "VRP",
+        "Brush Strokes"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Brush Strokes",
+        "TSP",
+        "Australia",
+        "College",
+        "Simple",
+        "Graph Coloring",
+        "Braille",
+        "VRP",
+        "Exponential",
+        "Red",
+        "Star Trek"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "TSP",
+        "Braille",
+        "Graph Coloring",
+        "Simple",
+        "VRP",
+        "Brush Strokes",
+        "Australia",
+        "Red",
+        "College",
+        "Exponential",
+        "Star Trek"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Star Trek",
+        "TSP",
+        "Graph Coloring",
+        "Exponential",
+        "Simple",
+        "College",
+        "Brush Strokes",
+        "Braille",
+        "Red",
+        "Australia",
+        "VRP"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Braille",
+        "Brush Strokes",
+        "Australia",
+        "VRP",
+        "Graph Coloring",
+        "TSP",
+        "Simple",
+        "College",
+        "Red",
+        "Exponential",
+        "Star Trek"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "VRP",
+        "Australia",
+        "Graph Coloring",
+        "Exponential",
+        "TSP",
+        "Brush Strokes",
+        "Braille",
+        "College",
+        "Simple",
+        "Red",
+        "Star Trek"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Graph Coloring",
+        "Brush Strokes",
+        "TSP",
+        "Simple",
+        "VRP",
+        "Australia",
+        "Star Trek",
+        "Braille",
+        "Red",
+        "College",
+        "Exponential"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Graph Coloring",
+        "Australia",
+        "TSP",
+        "Brush Strokes",
+        "Red",
+        "Simple",
+        "VRP",
+        "College",
+        "Exponential",
+        "Braille",
+        "Star Trek"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Star Trek",
+        "Australia",
+        "Simple",
+        "VRP",
+        "Graph Coloring",
+        "TSP",
+        "Brush Strokes",
+        "College",
+        "Red",
+        "Braille",
+        "Exponential"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "TSP",
+        "Brush Strokes",
+        "Star Trek",
+        "Australia",
+        "Graph Coloring",
+        "VRP",
+        "Braille",
+        "Simple",
+        "Red",
+        "College",
+        "Exponential"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Australia",
+        "Graph Coloring",
+        "VRP",
+        "TSP",
+        "Simple",
+        "Brush Strokes",
+        "Red",
+        "Braille",
+        "Star Trek",
+        "College",
+        "Exponential"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Australia",
+        "TSP",
+        "College",
+        "Graph Coloring",
+        "Braille",
+        "Star Trek",
+        "Exponential",
+        "VRP",
+        "Red",
+        "Brush Strokes",
+        "Simple"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Braille",
+        "TSP",
+        "Graph Coloring",
+        "Brush Strokes",
+        "Exponential",
+        "VRP",
+        "Red",
+        "College",
+        "Australia",
+        "Simple",
+        "Star Trek"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Brush Strokes",
+        "TSP",
+        "VRP",
+        "Australia",
+        "Graph Coloring",
+        "Simple",
+        "Braille",
+        "Star Trek",
+        "Red",
+        "College",
+        "Exponential"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Graph Coloring",
+        "VRP",
+        "TSP",
+        "Australia",
+        "Exponential",
+        "Red",
+        "Simple",
+        "Brush Strokes",
+        "Braille",
+        "College",
+        "Star Trek"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "VRP",
+        "Australia",
+        "Graph Coloring",
+        "TSP",
+        "Simple",
+        "Red",
+        "Exponential",
+        "College",
+        "Star Trek",
+        "Brush Strokes",
+        "Braille"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Graph Coloring",
+        "VRP",
+        "Simple",
+        "Exponential",
+        "College",
+        "TSP",
+        "Braille",
+        "Australia",
+        "Brush Strokes",
+        "Red",
+        "Star Trek"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Australia",
+        "Graph Coloring",
+        "VRP",
+        "Simple",
+        "Brush Strokes",
+        "Star Trek",
+        "TSP",
+        "Exponential",
+        "Red",
+        "Braille",
+        "College"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Australia",
+        "Graph Coloring",
+        "TSP",
+        "VRP",
+        "Simple",
+        "Brush Strokes",
+        "College",
+        "Exponential",
+        "Star Trek",
+        "Braille",
+        "Red"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Star Trek",
+        "Brush Strokes",
+        "Simple",
+        "College",
+        "TSP",
+        "Red",
+        "Graph Coloring",
+        "Australia",
+        "Braille",
+        "VRP",
+        "Exponential"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "TSP",
+        "Australia",
+        "Simple",
+        "Graph Coloring",
+        "VRP",
+        "Brush Strokes",
+        "Exponential",
+        "Red",
+        "College",
+        "Braille",
+        "Star Trek"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Braille",
+        "Red",
+        "Simple",
+        "Graph Coloring",
+        "TSP",
+        "VRP",
+        "Star Trek",
+        "Australia",
+        "College",
+        "Brush Strokes",
+        "Exponential"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "TSP",
+        "Star Trek",
+        "VRP",
+        "Australia",
+        "Graph Coloring",
+        "Simple",
+        "Brush Strokes",
+        "Braille",
+        "Red",
+        "College",
+        "Exponential"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Star Trek",
+        "Brush Strokes",
+        "College",
+        "Simple",
+        "Braille",
+        "TSP",
+        "Graph Coloring",
+        "Red",
+        "Australia",
+        "VRP",
+        "Exponential"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "Australia",
+        "Graph Coloring",
+        "Brush Strokes",
+        "TSP",
+        "Braille",
+        "VRP",
+        "Simple",
+        "Exponential",
+        "Red",
+        "College",
+        "Star Trek"
+      ],
+      "voters": 1
+    }
+  ]
+}

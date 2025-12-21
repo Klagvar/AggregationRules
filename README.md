@@ -37,7 +37,7 @@ $$d_{ik} = \sum_{l=1}^{n} g_l \cdot \varphi(k) \cdot |k - r_{il}|$$
 | Logarithmic | $\varphi(k) = 1/\log_2(k+1)$ | Плавное убывание |
 | Top-K | $\varphi(k) = 1$ если $k \leq K$, иначе $0$ | Только топ-K позиций |
 
-### Планируется: Адаптивная медиана Кемени
+### Адаптивная медиана Кемени
 
 **Идея:** Веса позиций вычисляются автоматически из данных, а не задаются вручную. Используется **энтропия согласованности экспертов** на каждой позиции.
 
@@ -81,46 +81,81 @@ src/aggregation/
     HungarianSolver.java
     KemenyMedianSolver.java
     KemenyResult.java
-    PositionWeightFunction.java       # [NEW] весовые функции
-    WeightedDistanceMatrix.java       # [NEW] взвешенная матрица
-    PositionWeightedKemenySolver.java # [NEW] решатель
-    PositionWeightedKemenyResult.java # [NEW] результат
+    PositionWeightFunction.java       # весовые функции
+    WeightedDistanceMatrix.java       # взвешенная матрица
+    PositionWeightedKemenySolver.java # позиционно-взвешенный решатель
+    PositionWeightedKemenyResult.java
+    PositionEntropyAnalyzer.java      # анализ энтропии на позициях
+    AdaptiveWeightMode.java           # режимы адаптивного метода
+    AdaptiveKemenySolver.java         # адаптивный решатель
+    AdaptiveKemenyResult.java
   io/                                 # ввод-вывод
     JsonProfileReader.java
     ProfileDataset.java
     SimpleJsonParser.java
 ```
 
-## Датасет
+## Датасеты
 
 Проект использует реальные данные из **PrefLib** (Preference Library):
 
-**Skate Dataset — Figure Skating Judges**  
- https://www.preflib.org/dataset/00006
+| Датасет | Описание | Альтернатив | Голосов | Согласованность |
+|---------|----------|-------------|---------|-----------------|
+| **Sushi** | Предпочтения по суши | 10 | 5000 | Низкая (субъективные вкусы) |
+| **T-Shirt** | Дизайн футболок | 11 | 30 | Низкая (субъективные мнения) |
+| **Skate** | Оценки судей фигурного катания | 14 | 9 | Высокая (профессиональные судьи) |
 
-- Оценки судей на чемпионатах по фигурному катанию
-- 9 судей ранжируют 14 фигуристов
-- Полные ранжировки (SOC — Strict Orders Complete)
+### Конвертер PrefLib
 
-Для конвертации данных PrefLib в JSON используется скрипт:
+Для конвертации данных PrefLib в JSON используется скрипт `convert_preflib.py`.
 
+**Поддерживаемые форматы PrefLib:** SOC, SOI, TOC, TOI, CAT, WMD.
+
+**Использование:**
+```bash
+# Конвертация в формат AggregationRules
+python convert_preflib.py input.soc
+python convert_preflib.py input.toc -o output.json
+
+# Конвертация в формат DASS
+python convert_preflib.py input.soc --dass
+```
+
+При конвертации в DASS ранжировки преобразуются в числовые оценки: порядок альтернатив становится их рангами (1, 2, 3...), критерий один — "Rank" с типом "negative" (меньше ранг = лучше).
+
+**Пример:**
 ```bash
 python convert_preflib.py preflib/00006_skate/00006-00000003.soc -o data/skate_euros_pairs.json
 ```
 
-## Результаты на датасете Skate
+## Результаты
 
-**European Championships, Pairs Short Program** (14 альтернатив, 9 судей)
+### T-Shirt Dataset (11 альтернатив, 30 голосов)
 
-| Позиция | Фигурист | Classic | Hyperbolic | Top-2 |
-|---------|----------|---------|------------|-------|
-| 1 | Berezhnaya & Sikharulidze | 1 | 1 | 1 |
-| 2 | Abitbol & Bernadis | 2 | 2 | 2 |
-| 3 | Zagorska & Siudek | 4 | 4 | **3** |
-| 4 | Kazakova & Dmitriev | 3 | 3 | **4** |
-| ... | ... | ... | ... | ... |
+| Метод | 1 место | 2 место | 3 место |
+|-------|---------|---------|---------|
+| **Classic (Uniform)** | Australia | TSP | Graph Coloring |
+| Hyperbolic | **TSP** | **Graph Coloring** | **Australia** |
+| Linear | TSP | Australia | Graph Coloring |
+| Exponential | TSP | Graph Coloring | Australia |
+| Consensus Focus | TSP | Graph Coloring | Australia |
 
-**Вывод:** Данный датасет высоко согласован (судьи единодушны по лидерам), поэтому большинство методов дают схожие результаты. Для демонстрации различий между весовыми функциями необходимо протестировать на датасетах с большим расхождением между экспертами (например, политические выборы, опросы с противоречивыми мнениями).
+**Вывод:** Классический Кемени даёт Australia на 1 месте, но все взвешенные методы — TSP. Это связано с тем, что на первой позиции TSP получает больше "первых мест" от голосующих.
+
+### Sushi Dataset (10 альтернатив, 5000 голосов)
+
+Entropy-анализ показал:
+- Позиции 1 и 10: entropy ≈ 0.87 (относительный консенсус)
+- Позиция 6: entropy = 1.0 (максимум разногласий)
+
+| Альтернатива | Classic | Hyperbolic | Consensus Focus |
+|--------------|---------|------------|-----------------|
+| uni (sea urchin) | 2 | **4** | **4** |
+| anago (sea eel) | 3 | **2** | **2** |
+
+### Skate Dataset (14 альтернатив, 9 судей)
+
+Датасет высоко согласован (профессиональные судьи единодушны по лидерам), поэтому все методы дают схожие результаты. Используется как контрольный пример.
 
 ## Формат входных данных
 
@@ -191,12 +226,10 @@ java -cp out aggregation.Main data/profile_example.json
 
 **Запуск позиционно-взвешенного Кемени:**
 ```bash
-java -cp out aggregation.PositionWeightedDemo data/skate_euros_pairs.json
+java -cp out aggregation.PositionWeightedDemo data/shirt.json
 ```
 
-## TODO
-
-- [ ] Реализовать адаптивную медиану Кемени (веса из энтропии)
-- [ ] Найти датасет с высокой степенью расхождения между экспертами
-- [ ] Провести сравнительный анализ на разных датасетах
-
+**Запуск адаптивного Кемени:**
+```bash
+java -cp out aggregation.AdaptiveKemenyDemo data/sushi.json
+```
