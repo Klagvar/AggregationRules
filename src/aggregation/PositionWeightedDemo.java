@@ -37,30 +37,30 @@ public final class PositionWeightedDemo {
         System.out.println();
 
         // 1. Классический Кемени
-        System.out.println("=== CLASSIC KEMENY (φ(k) = 1) ===");
+        System.out.println("=== CLASSIC KEMENY (phi(k) = 1) ===");
         KemenyMedianSolver classicSolver = new KemenyMedianSolver();
         KemenyResult classicResult = classicSolver.solve(profile);
         printResult(classicResult.ranking().sortedEntries(), classicResult.totalDistance());
         printMatrix("Classic", classicResult.distanceMatrix().asArray(), classicResult.distanceMatrix().alternatives());
 
-        // 2. Гиперболическая: φ(k) = 1/k
-        System.out.println("\n=== HYPERBOLIC (φ(k) = 1/k) ===");
+        // 2. Гиперболическая: phi(k) = 1/k
+        System.out.println("\n=== HYPERBOLIC (phi(k) = 1/k) ===");
         runWeighted(profile, PositionWeightFunction.hyperbolic(), "Hyperbolic");
 
-        // 3. Линейная: φ(k) = (m-k+1)/m
-        System.out.println("\n=== LINEAR (φ(k) = (m-k+1)/m) ===");
+        // 3. Линейная: phi(k) = (m-k+1)/m
+        System.out.println("\n=== LINEAR (phi(k) = (m-k+1)/m) ===");
         runWeighted(profile, PositionWeightFunction.linear(), "Linear");
 
-        // 4. Экспоненциальная: φ(k) = e^(-0.5(k-1))
-        System.out.println("\n=== EXPONENTIAL (φ(k) = e^(-0.5(k-1))) ===");
+        // 4. Экспоненциальная: phi(k) = e^(-0.5(k-1))
+        System.out.println("\n=== EXPONENTIAL (phi(k) = e^(-0.5(k-1))) ===");
         runWeighted(profile, PositionWeightFunction.exponential(0.5), "Exponential");
 
-        // 5. Логарифмическая: φ(k) = 1/log₂(k+1)
-        System.out.println("\n=== LOGARITHMIC (φ(k) = 1/log₂(k+1)) ===");
+        // 5. Логарифмическая: phi(k) = 1/log₂(k+1)
+        System.out.println("\n=== LOGARITHMIC (phi(k) = 1/log₂(k+1)) ===");
         runWeighted(profile, PositionWeightFunction.logarithmic(), "Logarithmic");
 
         // 6. Top-2: только первые 2 позиции
-        System.out.println("\n=== TOP-2 (φ(k) = 1 if k≤2, else 0) ===");
+        System.out.println("\n=== TOP-2 (phi(k) = 1 if k≤2, else 0) ===");
         runWeighted(profile, PositionWeightFunction.topK(2), "Top-2");
 
         // Сводная таблица
@@ -86,7 +86,7 @@ public final class PositionWeightedDemo {
     private static void printWeights(double[] weights) {
         System.out.print("Position weights: ");
         for (int i = 0; i < weights.length; i++) {
-            System.out.printf("φ(%d)=%.3f ", i + 1, weights[i]);
+            System.out.printf("phi(%d)=%.3f ", i + 1, weights[i]);
         }
         System.out.println();
     }

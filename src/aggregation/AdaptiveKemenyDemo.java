@@ -52,7 +52,7 @@ public final class AdaptiveKemenyDemo {
         
         KemenyMedianSolver classicSolver = new KemenyMedianSolver();
         KemenyResult classicResult = classicSolver.solve(profile);
-        printRanking("Classic Kemeny (φ(k) = 1)", classicResult.ranking().sortedMap(), classicResult.totalDistance());
+        printRanking("Classic Kemeny (phi(k) = 1)", classicResult.ranking().sortedMap(), classicResult.totalDistance());
 
         // Шаг 3: Позиционно-взвешенный (гиперболический)
         System.out.println("╔══════════════════════════════════════════════════════════════╗");
@@ -61,7 +61,7 @@ public final class AdaptiveKemenyDemo {
         
         PositionWeightedKemenySolver hyperbolicSolver = new PositionWeightedKemenySolver(PositionWeightFunction.hyperbolic());
         PositionWeightedKemenyResult hyperbolicResult = hyperbolicSolver.solve(profile);
-        printRanking("Hyperbolic (φ(k) = 1/k)", hyperbolicResult.ranking().sortedMap(), hyperbolicResult.totalDistance());
+        printRanking("Hyperbolic (phi(k) = 1/k)", hyperbolicResult.ranking().sortedMap(), hyperbolicResult.totalDistance());
 
         // Шаг 4: Адаптивный — фокус на конфликтах
         System.out.println("╔══════════════════════════════════════════════════════════════╗");
@@ -70,7 +70,7 @@ public final class AdaptiveKemenyDemo {
         
         AdaptiveKemenySolver conflictSolver = new AdaptiveKemenySolver(AdaptiveWeightMode.CONFLICT_FOCUS);
         AdaptiveKemenyResult conflictResult = conflictSolver.solve(profile);
-        printRanking("Conflict Focus (φ(k) = H(k)/H_max)", conflictResult.ranking().sortedMap(), conflictResult.totalWeightedDistance());
+        printRanking("Conflict Focus (phi(k) = H(k)/H_max)", conflictResult.ranking().sortedMap(), conflictResult.totalWeightedDistance());
         printAdaptiveWeights(entropyAnalyzer, AdaptiveWeightMode.CONFLICT_FOCUS);
 
         // Шаг 5: Адаптивный — фокус на консенсусе
@@ -80,7 +80,7 @@ public final class AdaptiveKemenyDemo {
         
         AdaptiveKemenySolver consensusSolver = new AdaptiveKemenySolver(AdaptiveWeightMode.CONSENSUS_FOCUS);
         AdaptiveKemenyResult consensusResult = consensusSolver.solve(profile);
-        printRanking("Consensus Focus (φ(k) = 1 - H(k)/H_max)", consensusResult.ranking().sortedMap(), consensusResult.totalWeightedDistance());
+        printRanking("Consensus Focus (phi(k) = 1 - H(k)/H_max)", consensusResult.ranking().sortedMap(), consensusResult.totalWeightedDistance());
         printAdaptiveWeights(entropyAnalyzer, AdaptiveWeightMode.CONSENSUS_FOCUS);
 
         // Шаг 6: Сводная таблица
@@ -110,7 +110,7 @@ public final class AdaptiveKemenyDemo {
         
         System.out.print("Computed weights: ");
         for (int k = 1; k <= m; k++) {
-            System.out.printf("φ(%d)=%.3f ", k, wf.weight(k, m));
+            System.out.printf("phi(%d)=%.3f ", k, wf.weight(k, m));
         }
         System.out.println("\n");
     }

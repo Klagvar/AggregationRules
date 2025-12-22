@@ -9,9 +9,9 @@ import java.util.List;
 
 /**
  * Позиционно-взвешенная матрица стоимостей d_{ik} для медианы Кемени.
- * Учитывает функцию весов φ(k) для каждой позиции.
+ * Учитывает функцию весов phi(k) для каждой позиции.
  * 
- * Формула: d_{ik} = Σ g_l · φ(k) · |k - r_{il}|
+ * Формула: d_{ik} = Σ g_l · phi(k) · |k - r_{il}|
  */
 public final class WeightedDistanceMatrix {
     private final List<Alternative> alternatives;
@@ -28,7 +28,7 @@ public final class WeightedDistanceMatrix {
      * Строит матрицу по профилю предпочтений с заданной весовой функцией.
      *
      * @param profile профиль предпочтений
-     * @param weightFunction функция весов позиций φ(k)
+     * @param weightFunction функция весов позиций phi(k)
      */
     public static WeightedDistanceMatrix fromProfile(PreferenceProfile profile, 
                                                       PositionWeightFunction weightFunction) {
@@ -52,7 +52,7 @@ public final class WeightedDistanceMatrix {
                 
                 for (RankingEntry entry : profile.entries()) {
                     int rank = entry.ranking().getRank(alternative);
-                    // Взвешенное расстояние: φ(k) · |k - r_il|
+                    // Взвешенное расстояние: phi(k) · |k - r_il|
                     sum += entry.voters() * posWeight * Math.abs(rankTarget - rank);
                 }
                 matrix[i][k] = sum;
@@ -63,7 +63,7 @@ public final class WeightedDistanceMatrix {
     }
 
     /**
-     * Строит классическую матрицу (без весов, φ(k) = 1).
+     * Строит классическую матрицу (без весов, phi(k) = 1).
      */
     public static WeightedDistanceMatrix fromProfile(PreferenceProfile profile) {
         return fromProfile(profile, PositionWeightFunction.uniform());
