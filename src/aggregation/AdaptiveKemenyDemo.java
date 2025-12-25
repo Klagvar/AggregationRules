@@ -1,5 +1,6 @@
 package aggregation;
 
+import aggregation.algorithms.ParetoAnalyzer;
 import aggregation.io.JsonProfileReader;
 import aggregation.io.ProfileDataset;
 import aggregation.kemeny.*;
@@ -36,64 +37,58 @@ public final class AdaptiveKemenyDemo {
         dataset.title().ifPresent(title -> System.out.println("Dataset: " + title));
         System.out.println();
 
+        // Шаг 0: Парето-анализ
+        printHeader("PARETO ANALYSIS");
+        ParetoAnalyzer.ParetoResult paretoResult = ParetoAnalyzer.analyze(profile);
+        paretoResult.print();
+        System.out.println();
+
         // Шаг 1: Анализ энтропии
-        System.out.println("╔══════════════════════════════════════════════════════════════╗");
-        System.out.println("║              ENTROPY ANALYSIS                                ║");
-        System.out.println("╚══════════════════════════════════════════════════════════════╝");
-        
+        printHeader("ENTROPY ANALYSIS");
         PositionEntropyAnalyzer entropyAnalyzer = PositionEntropyAnalyzer.analyze(profile);
         entropyAnalyzer.printReport();
         System.out.println();
 
         // Шаг 2: Классический Кемени
-        System.out.println("╔══════════════════════════════════════════════════════════════╗");
-        System.out.println("║              CLASSIC KEMENY                                  ║");
-        System.out.println("╚══════════════════════════════════════════════════════════════╝");
-        
+        printHeader("CLASSIC KEMENY");
         KemenyMedianSolver classicSolver = new KemenyMedianSolver();
         KemenyResult classicResult = classicSolver.solve(profile);
         printRanking("Classic Kemeny (phi(k) = 1)", classicResult.ranking().sortedMap(), classicResult.totalDistance());
 
         // Шаг 3: Позиционно-взвешенный (гиперболический)
-        System.out.println("╔══════════════════════════════════════════════════════════════╗");
-        System.out.println("║              POSITION-WEIGHTED KEMENY (Hyperbolic)           ║");
-        System.out.println("╚══════════════════════════════════════════════════════════════╝");
-        
+        printHeader("POSITION-WEIGHTED KEMENY (Hyperbolic)");
         PositionWeightedKemenySolver hyperbolicSolver = new PositionWeightedKemenySolver(PositionWeightFunction.hyperbolic());
         PositionWeightedKemenyResult hyperbolicResult = hyperbolicSolver.solve(profile);
         printRanking("Hyperbolic (phi(k) = 1/k)", hyperbolicResult.ranking().sortedMap(), hyperbolicResult.totalDistance());
 
         // Шаг 4: Адаптивный — фокус на конфликтах
-        System.out.println("╔══════════════════════════════════════════════════════════════╗");
-        System.out.println("║              ADAPTIVE KEMENY (Conflict Focus)                ║");
-        System.out.println("╚══════════════════════════════════════════════════════════════╝");
-        
+        printHeader("ADAPTIVE KEMENY (Conflict Focus)");
         AdaptiveKemenySolver conflictSolver = new AdaptiveKemenySolver(AdaptiveWeightMode.CONFLICT_FOCUS);
         AdaptiveKemenyResult conflictResult = conflictSolver.solve(profile);
         printRanking("Conflict Focus (phi(k) = H(k)/H_max)", conflictResult.ranking().sortedMap(), conflictResult.totalWeightedDistance());
         printAdaptiveWeights(entropyAnalyzer, AdaptiveWeightMode.CONFLICT_FOCUS);
 
         // Шаг 5: Адаптивный — фокус на консенсусе
-        System.out.println("╔══════════════════════════════════════════════════════════════╗");
-        System.out.println("║              ADAPTIVE KEMENY (Consensus Focus)               ║");
-        System.out.println("╚══════════════════════════════════════════════════════════════╝");
-        
+        printHeader("ADAPTIVE KEMENY (Consensus Focus)");
         AdaptiveKemenySolver consensusSolver = new AdaptiveKemenySolver(AdaptiveWeightMode.CONSENSUS_FOCUS);
         AdaptiveKemenyResult consensusResult = consensusSolver.solve(profile);
         printRanking("Consensus Focus (phi(k) = 1 - H(k)/H_max)", consensusResult.ranking().sortedMap(), consensusResult.totalWeightedDistance());
         printAdaptiveWeights(entropyAnalyzer, AdaptiveWeightMode.CONSENSUS_FOCUS);
 
         // Шаг 6: Сводная таблица
-        System.out.println("╔══════════════════════════════════════════════════════════════╗");
-        System.out.println("║              SUMMARY COMPARISON                              ║");
-        System.out.println("╚══════════════════════════════════════════════════════════════╝");
-        
+        printHeader("SUMMARY COMPARISON");
         printSummary(
                 Map.entry("Classic", classicResult.ranking().sortedMap()),
                 Map.entry("Hyperbolic", hyperbolicResult.ranking().sortedMap()),
                 Map.entry("Conflict", conflictResult.ranking().sortedMap()),
                 Map.entry("Consensus", consensusResult.ranking().sortedMap())
         );
+    }
+
+    private static void printHeader(String title) {
+        System.out.println("+" + "=".repeat(62) + "+");
+        System.out.printf("|  %-60s|%n", title);
+        System.out.println("+" + "=".repeat(62) + "+");
     }
 
     private static void printRanking(String title, Map<Alternative, Double> ranking, double distance) {

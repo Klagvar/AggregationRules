@@ -30,3 +30,10 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Временные файлы ###
+RESULTS.md
+RESULTS copy.md
+collect_results.py
+sources.txt
+preflib/find_preflib/

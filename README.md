@@ -62,7 +62,9 @@ $$H(k) = -\sum_{A_i} p_i \log_2(p_i)$$
 ```
 src/aggregation/
   Main.java                           # точка входа
-  PositionWeightedDemo.java           # демо нового метода
+  PositionWeightedDemo.java           # демо позиционно-взвешенного Кемени
+  AdaptiveKemenyDemo.java             # демо адаптивного Кемени
+  AggregatorTests.java                # тесты базовых методов
   model/                              # модели данных
     Alternative.java
     Ranking.java
@@ -76,6 +78,7 @@ src/aggregation/
     RankSumAggregator.java
     WeightedRankSumAggregator.java
     UtilityAggregator.java
+    ParetoAnalyzer.java               # Парето-анализ датасетов
   kemeny/                             # медиана Кемени
     DistanceMatrix.java
     HungarianSolver.java
@@ -99,11 +102,44 @@ src/aggregation/
 
 Проект использует реальные данные из **PrefLib** (Preference Library):
 
-| Датасет | Описание | Альтернатив | Голосов | Согласованность |
-|---------|----------|-------------|---------|-----------------|
-| **Sushi** | Предпочтения по суши | 10 | 5000 | Низкая (субъективные вкусы) |
-| **T-Shirt** | Дизайн футболок | 11 | 30 | Низкая (субъективные мнения) |
-| **Skate** | Оценки судей фигурного катания | 14 | 9 | Высокая (профессиональные судьи) |
+| Файл | Описание | Альтернатив | Голосов | Демонстрирует |
+|------|----------|-------------|---------|---------------|
+| `skate_conflict.json` | Skating World Junior | 18 | 7 | Conflict Focus меняет победителя |
+| `f1_consensus.json` | F1 1976 Season | 13 | 16 | Consensus Focus меняет победителя |
+| `f1_hyperbolic.json` | F1 1984 Season | 25 | 6 | Hyperbolic меняет победителя |
+
+### Сгенерированные датасеты
+
+| Файл | Параметры | Описание |
+|------|-----------|----------|
+| `high_consensus.json` | consensus=0.9 | Все методы дают одинаковый результат |
+| `low_consensus.json` | consensus=0.2 | Различия в средних позициях |
+| `polarized.json` | clusters=2 | Поляризованные мнения, разные победители |
+| `top_consensus.json` | consensus_position=top | Согласие на топе, различия внизу |
+| `generated_bottom_consensus.json` | consensus_position=bottom | Споры на топе, меняется победитель |
+
+### Генератор ранжировок
+
+Скрипт `ranking_generator.py` создаёт синтетические датасеты с контролируемыми параметрами:
+
+```bash
+# Высокий консенсус
+python ranking_generator.py --preset high_consensus --seed 42 -o data/high_consensus.json
+
+# Поляризованные мнения (2 кластера)
+python ranking_generator.py --preset polarized --seed 42 -o data/polarized.json
+
+# Согласие на топе
+python ranking_generator.py --preset top_consensus --seed 42 -o data/top_consensus.json
+```
+
+**Параметры:**
+- `--alternatives` — количество альтернатив (по умолчанию 10)
+- `--experts` — количество экспертов (по умолчанию 20)
+- `--consensus` — уровень согласия от 0 до 1
+- `--position` — распределение консенсуса: `uniform`, `top`, `bottom`
+- `--clusters` — количество кластеров мнений
+- `--seed` — seed для воспроизводимости
 
 ### Конвертер PrefLib
 
@@ -125,37 +161,37 @@ python convert_preflib.py input.soc --dass
 
 **Пример:**
 ```bash
-python convert_preflib.py preflib/00006_skate/00006-00000003.soc -o data/skate_euros_pairs.json
+python convert_preflib.py 00006-00000021.soc -o data/skate_conflict.json
 ```
 
 ## Результаты
 
-### T-Shirt Dataset (11 альтернатив, 30 голосов)
+### Skating (skate_conflict.json) — Conflict Focus
 
-| Метод | 1 место | 2 место | 3 место |
-|-------|---------|---------|---------|
-| **Classic (Uniform)** | Australia | TSP | Graph Coloring |
-| Hyperbolic | **TSP** | **Graph Coloring** | **Australia** |
-| Linear | TSP | Australia | Graph Coloring |
-| Exponential | TSP | Graph Coloring | Australia |
-| Consensus Focus | TSP | Graph Coloring | Australia |
+| Метод | 1 место | 2 место |
+|-------|---------|---------|
+| Classic | Sergei Davydov | Yunfei Li |
+| **Conflict Focus** | **Yunfei Li** | Sergei Davydov |
 
-**Вывод:** Классический Кемени даёт Australia на 1 месте, но все взвешенные методы — TSP. Это связано с тем, что на первой позиции TSP получает больше "первых мест" от голосующих.
+**Вывод:** Conflict Focus меняет победителя! Позиция 1 имеет низкую энтропию (0.235), метод даёт ей низкий вес.
 
-### Sushi Dataset (10 альтернатив, 5000 голосов)
+### F1 1976 (f1_consensus.json) — Consensus Focus
 
-Entropy-анализ показал:
-- Позиции 1 и 10: entropy ≈ 0.87 (относительный консенсус)
-- Позиция 6: entropy = 1.0 (максимум разногласий)
+| Метод | 1 место | 2 место |
+|-------|---------|---------|
+| Classic | Hunt | Depailler |
+| **Consensus Focus** | **Scheckter** | Hunt |
 
-| Альтернатива | Classic | Hyperbolic | Consensus Focus |
-|--------------|---------|------------|-----------------|
-| uni (sea urchin) | 2 | **4** | **4** |
-| anago (sea eel) | 3 | **2** | **2** |
+**Вывод:** Consensus Focus меняет победителя! Фокус на согласованных позициях.
 
-### Skate Dataset (14 альтернатив, 9 судей)
+### F1 1984 (f1_hyperbolic.json) — Hyperbolic
 
-Датасет высоко согласован (профессиональные судьи единодушны по лидерам), поэтому все методы дают схожие результаты. Используется как контрольный пример.
+| Метод | 1 место | 2 место |
+|-------|---------|---------|
+| Classic | Prost | Warwick |
+| **Hyperbolic** | **Angelis** | Warwick |
+
+**Вывод:** Hyperbolic (φ(k)=1/k) меняет победителя при большом числе альтернатив (25).
 
 ## Формат входных данных
 
@@ -204,6 +240,16 @@ Entropy-анализ показал:
 
 Полное описание формата: [`docs/json_format.md`](docs/json_format.md).
 
+## Тестирование
+
+Проект включает тесты для проверки корректности базовых методов:
+
+```bash
+java -cp out aggregation.AggregatorTests
+```
+
+Каждый тест содержит **ручной расчёт** в комментариях для верификации.
+
 ## Требования
 
 - JDK 17 или выше
@@ -226,10 +272,15 @@ java -cp out aggregation.Main data/profile_example.json
 
 **Запуск позиционно-взвешенного Кемени:**
 ```bash
-java -cp out aggregation.PositionWeightedDemo data/shirt.json
+java -cp out aggregation.PositionWeightedDemo data/f1_hyperbolic.json
 ```
 
 **Запуск адаптивного Кемени:**
 ```bash
-java -cp out aggregation.AdaptiveKemenyDemo data/sushi.json
+java -cp out aggregation.AdaptiveKemenyDemo data/skate_conflict.json
+```
+
+**Запуск тестов базовых методов:**
+```bash
+java -cp out aggregation.AggregatorTests
 ```

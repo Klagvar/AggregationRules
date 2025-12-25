@@ -1,0 +1,316 @@
+{
+  "metadata": {
+    "title": "1976",
+    "source": "PrefLib (00052-00000027.soc)",
+    "data_type": "soc",
+    "has_ties": false,
+    "is_complete": true,
+    "total_voters": 16,
+    "num_alternatives": 13
+  },
+  "alternatives": [
+    "emerson_fittipaldi",
+    "jarier",
+    "laffite",
+    "pryce",
+    "brambilla",
+    "pace",
+    "depailler",
+    "hunt",
+    "mass",
+    "peterson",
+    "watson",
+    "stuck",
+    "scheckter"
+  ],
+  "rankings": [
+    {
+      "order": [
+        "depailler",
+        "pryce",
+        "stuck",
+        "scheckter",
+        "mass",
+        "pace",
+        "emerson_fittipaldi",
+        "jarier",
+        "hunt",
+        "brambilla",
+        "laffite",
+        "peterson",
+        "watson"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "hunt",
+        "mass",
+        "scheckter",
+        "watson",
+        "pryce",
+        "brambilla",
+        "depailler",
+        "stuck",
+        "emerson_fittipaldi",
+        "laffite",
+        "jarier",
+        "pace",
+        "peterson"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "depailler",
+        "laffite",
+        "mass",
+        "emerson_fittipaldi",
+        "jarier",
+        "pace",
+        "peterson",
+        "watson",
+        "scheckter",
+        "pryce",
+        "hunt",
+        "stuck",
+        "brambilla"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "hunt",
+        "pace",
+        "pryce",
+        "laffite",
+        "mass",
+        "jarier",
+        "scheckter",
+        "watson",
+        "depailler",
+        "brambilla",
+        "stuck",
+        "peterson",
+        "emerson_fittipaldi"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "laffite",
+        "scheckter",
+        "mass",
+        "watson",
+        "jarier",
+        "pryce",
+        "pace",
+        "hunt",
+        "stuck",
+        "depailler",
+        "peterson",
+        "brambilla",
+        "emerson_fittipaldi"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "scheckter",
+        "depailler",
+        "stuck",
+        "mass",
+        "emerson_fittipaldi",
+        "pryce",
+        "jarier",
+        "pace",
+        "watson",
+        "laffite",
+        "peterson",
+        "hunt",
+        "brambilla"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "scheckter",
+        "depailler",
+        "laffite",
+        "hunt",
+        "peterson",
+        "pace",
+        "pryce",
+        "brambilla",
+        "mass",
+        "jarier",
+        "stuck",
+        "emerson_fittipaldi",
+        "watson"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "hunt",
+        "depailler",
+        "watson",
+        "pace",
+        "scheckter",
+        "stuck",
+        "pryce",
+        "jarier",
+        "laffite",
+        "mass",
+        "peterson",
+        "brambilla",
+        "emerson_fittipaldi"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "scheckter",
+        "watson",
+        "pryce",
+        "emerson_fittipaldi",
+        "pace",
+        "jarier",
+        "hunt",
+        "peterson",
+        "depailler",
+        "laffite",
+        "brambilla",
+        "mass",
+        "stuck"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "hunt",
+        "scheckter",
+        "mass",
+        "pace",
+        "watson",
+        "pryce",
+        "jarier",
+        "emerson_fittipaldi",
+        "brambilla",
+        "depailler",
+        "peterson",
+        "stuck",
+        "laffite"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "watson",
+        "laffite",
+        "hunt",
+        "peterson",
+        "mass",
+        "brambilla",
+        "emerson_fittipaldi",
+        "pace",
+        "jarier",
+        "stuck",
+        "depailler",
+        "pryce",
+        "scheckter"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "hunt",
+        "pryce",
+        "scheckter",
+        "brambilla",
+        "depailler",
+        "mass",
+        "jarier",
+        "pace",
+        "laffite",
+        "peterson",
+        "watson",
+        "emerson_fittipaldi",
+        "stuck"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "peterson",
+        "laffite",
+        "scheckter",
+        "depailler",
+        "brambilla",
+        "pryce",
+        "watson",
+        "emerson_fittipaldi",
+        "jarier",
+        "stuck",
+        "hunt",
+        "pace",
+        "mass"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "hunt",
+        "depailler",
+        "scheckter",
+        "mass",
+        "pace",
+        "peterson",
+        "watson",
+        "pryce",
+        "brambilla",
+        "jarier",
+        "laffite",
+        "emerson_fittipaldi",
+        "stuck"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "hunt",
+        "scheckter",
+        "mass",
+        "stuck",
+        "watson",
+        "emerson_fittipaldi",
+        "jarier",
+        "pryce",
+        "brambilla",
+        "laffite",
+        "pace",
+        "peterson",
+        "depailler"
+      ],
+      "voters": 1
+    },
+    {
+      "order": [
+        "depailler",
+        "hunt",
+        "laffite",
+        "jarier",
+        "scheckter",
+        "pryce",
+        "brambilla",
+        "stuck",
+        "mass",
+        "watson",
+        "emerson_fittipaldi",
+        "pace",
+        "peterson"
+      ],
+      "voters": 1
+    }
+  ]
+}
