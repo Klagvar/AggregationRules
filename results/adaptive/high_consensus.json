@@ -1,0 +1,311 @@
+{
+  "dataset": "high_consensus",
+  "title": "high_consensus",
+  "alternatives": 10,
+  "rankings": 20,
+  "entropy_analysis": [
+    {
+      "position": 1,
+      "entropy": 1.154,
+      "normalized": 0.5544,
+      "conflict_weight": 0.5544,
+      "consensus_weight": 0.4456
+    },
+    {
+      "position": 2,
+      "entropy": 1.9232,
+      "normalized": 0.924,
+      "conflict_weight": 0.924,
+      "consensus_weight": 0.076
+    },
+    {
+      "position": 3,
+      "entropy": 2.0815,
+      "normalized": 1.0,
+      "conflict_weight": 1.0,
+      "consensus_weight": 0.0
+    },
+    {
+      "position": 4,
+      "entropy": 1.319,
+      "normalized": 0.6337,
+      "conflict_weight": 0.6337,
+      "consensus_weight": 0.3663
+    },
+    {
+      "position": 5,
+      "entropy": 1.319,
+      "normalized": 0.6337,
+      "conflict_weight": 0.6337,
+      "consensus_weight": 0.3663
+    },
+    {
+      "position": 6,
+      "entropy": 1.9815,
+      "normalized": 0.952,
+      "conflict_weight": 0.952,
+      "consensus_weight": 0.048
+    },
+    {
+      "position": 7,
+      "entropy": 1.0219,
+      "normalized": 0.491,
+      "conflict_weight": 0.491,
+      "consensus_weight": 0.509
+    },
+    {
+      "position": 8,
+      "entropy": 1.6568,
+      "normalized": 0.796,
+      "conflict_weight": 0.796,
+      "consensus_weight": 0.204
+    },
+    {
+      "position": 9,
+      "entropy": 1.1813,
+      "normalized": 0.5675,
+      "conflict_weight": 0.5675,
+      "consensus_weight": 0.4325
+    },
+    {
+      "position": 10,
+      "entropy": 0.8842,
+      "normalized": 0.4248,
+      "conflict_weight": 0.4248,
+      "consensus_weight": 0.5752
+    }
+  ],
+  "max_entropy": 2.0815,
+  "methods": [
+    {
+      "name": "Borda",
+      "distance": 0.0,
+      "ranking": [
+        {
+          "alternative": "A8",
+          "rank": 36
+        },
+        {
+          "alternative": "A4",
+          "rank": 57
+        },
+        {
+          "alternative": "A3",
+          "rank": 62
+        },
+        {
+          "alternative": "A9",
+          "rank": 80
+        },
+        {
+          "alternative": "A6",
+          "rank": 99
+        },
+        {
+          "alternative": "A7",
+          "rank": 107
+        },
+        {
+          "alternative": "A10",
+          "rank": 134
+        },
+        {
+          "alternative": "A5",
+          "rank": 162
+        },
+        {
+          "alternative": "A1",
+          "rank": 168
+        },
+        {
+          "alternative": "A2",
+          "rank": 195
+        }
+      ]
+    },
+    {
+      "name": "Classic",
+      "distance": 126.0,
+      "ranking": [
+        {
+          "alternative": "A8",
+          "rank": 1
+        },
+        {
+          "alternative": "A4",
+          "rank": 2
+        },
+        {
+          "alternative": "A3",
+          "rank": 3
+        },
+        {
+          "alternative": "A9",
+          "rank": 4
+        },
+        {
+          "alternative": "A6",
+          "rank": 5
+        },
+        {
+          "alternative": "A7",
+          "rank": 6
+        },
+        {
+          "alternative": "A10",
+          "rank": 7
+        },
+        {
+          "alternative": "A5",
+          "rank": 8
+        },
+        {
+          "alternative": "A1",
+          "rank": 9
+        },
+        {
+          "alternative": "A2",
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "name": "Hyperbolic",
+      "distance": 43.2095,
+      "ranking": [
+        {
+          "alternative": "A8",
+          "rank": 1
+        },
+        {
+          "alternative": "A4",
+          "rank": 2
+        },
+        {
+          "alternative": "A3",
+          "rank": 3
+        },
+        {
+          "alternative": "A9",
+          "rank": 4
+        },
+        {
+          "alternative": "A6",
+          "rank": 5
+        },
+        {
+          "alternative": "A7",
+          "rank": 6
+        },
+        {
+          "alternative": "A10",
+          "rank": 7
+        },
+        {
+          "alternative": "A5",
+          "rank": 8
+        },
+        {
+          "alternative": "A1",
+          "rank": 9
+        },
+        {
+          "alternative": "A2",
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "name": "Conflict",
+      "distance": 94.9855,
+      "ranking": [
+        {
+          "alternative": "A8",
+          "rank": 1
+        },
+        {
+          "alternative": "A4",
+          "rank": 2
+        },
+        {
+          "alternative": "A3",
+          "rank": 3
+        },
+        {
+          "alternative": "A9",
+          "rank": 4
+        },
+        {
+          "alternative": "A6",
+          "rank": 5
+        },
+        {
+          "alternative": "A7",
+          "rank": 6
+        },
+        {
+          "alternative": "A10",
+          "rank": 7
+        },
+        {
+          "alternative": "A5",
+          "rank": 8
+        },
+        {
+          "alternative": "A1",
+          "rank": 9
+        },
+        {
+          "alternative": "A2",
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "name": "Consensus",
+      "distance": 31.0145,
+      "ranking": [
+        {
+          "alternative": "A8",
+          "rank": 1
+        },
+        {
+          "alternative": "A4",
+          "rank": 2
+        },
+        {
+          "alternative": "A3",
+          "rank": 3
+        },
+        {
+          "alternative": "A9",
+          "rank": 4
+        },
+        {
+          "alternative": "A6",
+          "rank": 5
+        },
+        {
+          "alternative": "A7",
+          "rank": 6
+        },
+        {
+          "alternative": "A10",
+          "rank": 7
+        },
+        {
+          "alternative": "A5",
+          "rank": 8
+        },
+        {
+          "alternative": "A1",
+          "rank": 9
+        },
+        {
+          "alternative": "A2",
+          "rank": 10
+        }
+      ]
+    }
+  ]
+}

@@ -39,8 +39,23 @@ public final class JsonProfileReader {
 
         String title = metadata != null ? asString(metadata.get("title"), true) : null;
         String source = metadata != null ? asString(metadata.get("source"), true) : null;
+        
+        // Читаем ground_truth (эталонное ранжирование для синтетических данных)
+        List<String> groundTruth = asStringList(root.get("ground_truth"), true);
+        if (groundTruth.isEmpty()) {
+            groundTruth = null;
+        }
+        
+        // Читаем consensus_level и num_experts из метаданных
+        Double consensusLevel = null;
+        Integer numExperts = null;
+        if (metadata != null) {
+            consensusLevel = asDouble(metadata.get("consensus_level"), true);
+            numExperts = asInteger(metadata.get("num_experts"), true);
+        }
 
-        return new ProfileDataset(preferenceProfile, weightMatrix, utilityProfile, title, source);
+        return new ProfileDataset(preferenceProfile, weightMatrix, utilityProfile, 
+                title, source, groundTruth, consensusLevel, numExperts);
     }
 
     /**
@@ -243,6 +258,38 @@ public final class JsonProfileReader {
             throw new IllegalArgumentException("Unknown alternative: " + name);
         }
         return alternative;
+    }
+
+    /**
+     * Преобразует узел к Double или null.
+     */
+    private Double asDouble(Object node, boolean optional) {
+        if (node == null) {
+            if (optional) {
+                return null;
+            }
+            throw new IllegalArgumentException("Expected number value");
+        }
+        if (node instanceof Number num) {
+            return num.doubleValue();
+        }
+        throw new IllegalArgumentException("Expected number value");
+    }
+    
+    /**
+     * Преобразует узел к Integer или null.
+     */
+    private Integer asInteger(Object node, boolean optional) {
+        if (node == null) {
+            if (optional) {
+                return null;
+            }
+            throw new IllegalArgumentException("Expected integer value");
+        }
+        if (node instanceof Number num) {
+            return num.intValue();
+        }
+        throw new IllegalArgumentException("Expected integer value");
     }
 
     /**

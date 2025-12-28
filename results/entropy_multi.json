@@ -1,0 +1,1333 @@
+{
+  "experiment": "entropy_multi_seed_accuracy",
+  "description": "Усреднённая точность по множеству seed'ов",
+  "consensus_levels": 51,
+  "results": [
+    {
+      "noise_level": 0.0,
+      "consensus_level": 1.0,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.42,
+        "Classic": 0.5,
+        "Hyperbolic": 0.44,
+        "Conflict": 0.0,
+        "Consensus": 0.48
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.02,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.22,
+        "Classic": 2.8,
+        "Hyperbolic": 2.48,
+        "Conflict": 0.0,
+        "Consensus": 2.66
+      }
+    },
+    {
+      "noise_level": 0.02,
+      "consensus_level": 0.98,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.42,
+        "Classic": 0.48,
+        "Hyperbolic": 0.44,
+        "Conflict": 0.04,
+        "Consensus": 0.5
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.06,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.2,
+        "Classic": 2.72,
+        "Hyperbolic": 2.56,
+        "Conflict": 0.12,
+        "Consensus": 2.74
+      }
+    },
+    {
+      "noise_level": 0.04,
+      "consensus_level": 0.96,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.44,
+        "Classic": 0.46,
+        "Hyperbolic": 0.4,
+        "Conflict": 0.04,
+        "Consensus": 0.48
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.08,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.38,
+        "Classic": 2.7,
+        "Hyperbolic": 2.48,
+        "Conflict": 0.12,
+        "Consensus": 2.88
+      }
+    },
+    {
+      "noise_level": 0.06,
+      "consensus_level": 0.94,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.44,
+        "Classic": 0.48,
+        "Hyperbolic": 0.42,
+        "Conflict": 0.04,
+        "Consensus": 0.46
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.04,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.22,
+        "Classic": 2.78,
+        "Hyperbolic": 2.54,
+        "Conflict": 0.12,
+        "Consensus": 2.7
+      }
+    },
+    {
+      "noise_level": 0.08,
+      "consensus_level": 0.92,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.44,
+        "Classic": 0.44,
+        "Hyperbolic": 0.42,
+        "Conflict": 0.02,
+        "Consensus": 0.44
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.04,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.44,
+        "Classic": 2.7,
+        "Hyperbolic": 2.54,
+        "Conflict": 0.06,
+        "Consensus": 2.66
+      }
+    },
+    {
+      "noise_level": 0.1,
+      "consensus_level": 0.9,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.38,
+        "Classic": 0.48,
+        "Hyperbolic": 0.4,
+        "Conflict": 0.02,
+        "Consensus": 0.5
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.04,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.1,
+        "Classic": 2.6,
+        "Hyperbolic": 2.48,
+        "Conflict": 0.06,
+        "Consensus": 2.76
+      }
+    },
+    {
+      "noise_level": 0.12,
+      "consensus_level": 0.88,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.36,
+        "Classic": 0.44,
+        "Hyperbolic": 0.44,
+        "Conflict": 0.02,
+        "Consensus": 0.48
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.04,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.96,
+        "Classic": 2.36,
+        "Hyperbolic": 2.52,
+        "Conflict": 0.06,
+        "Consensus": 2.54
+      }
+    },
+    {
+      "noise_level": 0.14,
+      "consensus_level": 0.86,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.42,
+        "Classic": 0.48,
+        "Hyperbolic": 0.42,
+        "Conflict": 0.02,
+        "Consensus": 0.46
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.02,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.2,
+        "Classic": 2.48,
+        "Hyperbolic": 2.42,
+        "Conflict": 0.06,
+        "Consensus": 2.44
+      }
+    },
+    {
+      "noise_level": 0.16,
+      "consensus_level": 0.84,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.34,
+        "Classic": 0.48,
+        "Hyperbolic": 0.46,
+        "Conflict": 0.02,
+        "Consensus": 0.48
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.02,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.88,
+        "Classic": 2.48,
+        "Hyperbolic": 2.58,
+        "Conflict": 0.06,
+        "Consensus": 2.52
+      }
+    },
+    {
+      "noise_level": 0.18,
+      "consensus_level": 0.82,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.34,
+        "Classic": 0.46,
+        "Hyperbolic": 0.42,
+        "Conflict": 0.0,
+        "Consensus": 0.46
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.82,
+        "Classic": 2.46,
+        "Hyperbolic": 2.34,
+        "Conflict": 0.0,
+        "Consensus": 2.44
+      }
+    },
+    {
+      "noise_level": 0.2,
+      "consensus_level": 0.8,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.42,
+        "Classic": 0.48,
+        "Hyperbolic": 0.42,
+        "Conflict": 0.0,
+        "Consensus": 0.48
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.24,
+        "Classic": 2.6,
+        "Hyperbolic": 2.4,
+        "Conflict": 0.0,
+        "Consensus": 2.64
+      }
+    },
+    {
+      "noise_level": 0.22,
+      "consensus_level": 0.78,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.4,
+        "Classic": 0.46,
+        "Hyperbolic": 0.38,
+        "Conflict": 0.0,
+        "Consensus": 0.42
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.94,
+        "Classic": 2.48,
+        "Hyperbolic": 2.12,
+        "Conflict": 0.0,
+        "Consensus": 2.34
+      }
+    },
+    {
+      "noise_level": 0.24,
+      "consensus_level": 0.76,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.44,
+        "Classic": 0.42,
+        "Hyperbolic": 0.4,
+        "Conflict": 0.0,
+        "Consensus": 0.4
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.1,
+        "Classic": 2.38,
+        "Hyperbolic": 2.2,
+        "Conflict": 0.0,
+        "Consensus": 2.32
+      }
+    },
+    {
+      "noise_level": 0.26,
+      "consensus_level": 0.74,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.36,
+        "Classic": 0.42,
+        "Hyperbolic": 0.36,
+        "Conflict": 0.0,
+        "Consensus": 0.42
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.98,
+        "Classic": 2.26,
+        "Hyperbolic": 2.14,
+        "Conflict": 0.0,
+        "Consensus": 2.34
+      }
+    },
+    {
+      "noise_level": 0.28,
+      "consensus_level": 0.72,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.36,
+        "Classic": 0.42,
+        "Hyperbolic": 0.44,
+        "Conflict": 0.0,
+        "Consensus": 0.42
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.16,
+        "Classic": 2.32,
+        "Hyperbolic": 2.36,
+        "Conflict": 0.0,
+        "Consensus": 2.2
+      }
+    },
+    {
+      "noise_level": 0.3,
+      "consensus_level": 0.7,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.36,
+        "Classic": 0.4,
+        "Hyperbolic": 0.34,
+        "Conflict": 0.0,
+        "Consensus": 0.42
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.08,
+        "Classic": 2.38,
+        "Hyperbolic": 2.02,
+        "Conflict": 0.0,
+        "Consensus": 2.38
+      }
+    },
+    {
+      "noise_level": 0.32,
+      "consensus_level": 0.68,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.3,
+        "Classic": 0.4,
+        "Hyperbolic": 0.36,
+        "Conflict": 0.0,
+        "Consensus": 0.4
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.78,
+        "Classic": 2.34,
+        "Hyperbolic": 2.2,
+        "Conflict": 0.0,
+        "Consensus": 2.2
+      }
+    },
+    {
+      "noise_level": 0.34,
+      "consensus_level": 0.66,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.3,
+        "Classic": 0.42,
+        "Hyperbolic": 0.38,
+        "Conflict": 0.0,
+        "Consensus": 0.4
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.8,
+        "Classic": 2.34,
+        "Hyperbolic": 2.18,
+        "Conflict": 0.0,
+        "Consensus": 2.28
+      }
+    },
+    {
+      "noise_level": 0.36,
+      "consensus_level": 0.64,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.34,
+        "Classic": 0.42,
+        "Hyperbolic": 0.38,
+        "Conflict": 0.0,
+        "Consensus": 0.4
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.12,
+        "Classic": 2.18,
+        "Hyperbolic": 2.36,
+        "Conflict": 0.0,
+        "Consensus": 2.14
+      }
+    },
+    {
+      "noise_level": 0.38,
+      "consensus_level": 0.62,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.36,
+        "Classic": 0.4,
+        "Hyperbolic": 0.36,
+        "Conflict": 0.0,
+        "Consensus": 0.4
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.22,
+        "Classic": 2.16,
+        "Hyperbolic": 2.18,
+        "Conflict": 0.0,
+        "Consensus": 2.16
+      }
+    },
+    {
+      "noise_level": 0.4,
+      "consensus_level": 0.6,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.32,
+        "Classic": 0.38,
+        "Hyperbolic": 0.34,
+        "Conflict": 0.0,
+        "Consensus": 0.38
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.02,
+        "Classic": 2.02,
+        "Hyperbolic": 2.14,
+        "Conflict": 0.0,
+        "Consensus": 2.04
+      }
+    },
+    {
+      "noise_level": 0.42,
+      "consensus_level": 0.58,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.34,
+        "Classic": 0.4,
+        "Hyperbolic": 0.3,
+        "Conflict": 0.0,
+        "Consensus": 0.4
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.16,
+        "Classic": 2.08,
+        "Hyperbolic": 1.92,
+        "Conflict": 0.0,
+        "Consensus": 2.02
+      }
+    },
+    {
+      "noise_level": 0.44,
+      "consensus_level": 0.56,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.34,
+        "Classic": 0.34,
+        "Hyperbolic": 0.34,
+        "Conflict": 0.0,
+        "Consensus": 0.34
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 3.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.94,
+        "Classic": 1.92,
+        "Hyperbolic": 1.82,
+        "Conflict": 0.0,
+        "Consensus": 1.96
+      }
+    },
+    {
+      "noise_level": 0.46,
+      "consensus_level": 0.54,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.26,
+        "Classic": 0.02,
+        "Hyperbolic": 0.3,
+        "Conflict": 0.0,
+        "Consensus": 0.34
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 2.04,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.62,
+        "Classic": 1.12,
+        "Hyperbolic": 1.74,
+        "Conflict": 0.0,
+        "Consensus": 1.84
+      }
+    },
+    {
+      "noise_level": 0.48,
+      "consensus_level": 0.52,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.32,
+        "Classic": 0.0,
+        "Hyperbolic": 0.32,
+        "Conflict": 0.0,
+        "Consensus": 0.38
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 2.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.92,
+        "Classic": 1.04,
+        "Hyperbolic": 1.74,
+        "Conflict": 0.0,
+        "Consensus": 1.92
+      }
+    },
+    {
+      "noise_level": 0.5,
+      "consensus_level": 0.5,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.38,
+        "Classic": 0.0,
+        "Hyperbolic": 0.3,
+        "Conflict": 0.0,
+        "Consensus": 0.38
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 1.8,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.08,
+        "Classic": 0.94,
+        "Hyperbolic": 1.76,
+        "Conflict": 0.0,
+        "Consensus": 2.1
+      }
+    },
+    {
+      "noise_level": 0.52,
+      "consensus_level": 0.48,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.36,
+        "Classic": 0.0,
+        "Hyperbolic": 0.3,
+        "Conflict": 0.0,
+        "Consensus": 0.32
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 1.1,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.28,
+        "Classic": 0.54,
+        "Hyperbolic": 1.96,
+        "Conflict": 0.0,
+        "Consensus": 1.9
+      }
+    },
+    {
+      "noise_level": 0.54,
+      "consensus_level": 0.46,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.34,
+        "Classic": 0.0,
+        "Hyperbolic": 0.26,
+        "Conflict": 0.0,
+        "Consensus": 0.36
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 1.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.22,
+        "Classic": 0.48,
+        "Hyperbolic": 1.96,
+        "Conflict": 0.0,
+        "Consensus": 1.98
+      }
+    },
+    {
+      "noise_level": 0.56,
+      "consensus_level": 0.44,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.34,
+        "Classic": 0.0,
+        "Hyperbolic": 0.28,
+        "Conflict": 0.0,
+        "Consensus": 0.34
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 1.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.16,
+        "Classic": 0.44,
+        "Hyperbolic": 1.96,
+        "Conflict": 0.0,
+        "Consensus": 2.02
+      }
+    },
+    {
+      "noise_level": 0.58,
+      "consensus_level": 0.42,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.34,
+        "Classic": 0.0,
+        "Hyperbolic": 0.22,
+        "Conflict": 0.0,
+        "Consensus": 0.34
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 1.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.14,
+        "Classic": 0.44,
+        "Hyperbolic": 1.78,
+        "Conflict": 0.0,
+        "Consensus": 2.02
+      }
+    },
+    {
+      "noise_level": 0.6,
+      "consensus_level": 0.4,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.32,
+        "Classic": 0.0,
+        "Hyperbolic": 0.3,
+        "Conflict": 0.0,
+        "Consensus": 0.42
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 0.18,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.94,
+        "Classic": 0.04,
+        "Hyperbolic": 1.94,
+        "Conflict": 0.0,
+        "Consensus": 2.24
+      }
+    },
+    {
+      "noise_level": 0.62,
+      "consensus_level": 0.38,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.3,
+        "Classic": 0.0,
+        "Hyperbolic": 0.3,
+        "Conflict": 0.0,
+        "Consensus": 0.44
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 0.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.78,
+        "Classic": 0.0,
+        "Hyperbolic": 1.84,
+        "Conflict": 0.0,
+        "Consensus": 2.32
+      }
+    },
+    {
+      "noise_level": 0.64,
+      "consensus_level": 0.36,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.28,
+        "Classic": 0.0,
+        "Hyperbolic": 0.24,
+        "Conflict": 0.0,
+        "Consensus": 0.38
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 0.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.94,
+        "Classic": 0.0,
+        "Hyperbolic": 1.74,
+        "Conflict": 0.0,
+        "Consensus": 2.22
+      }
+    },
+    {
+      "noise_level": 0.66,
+      "consensus_level": 0.34,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.26,
+        "Classic": 0.0,
+        "Hyperbolic": 0.24,
+        "Conflict": 0.0,
+        "Consensus": 0.38
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 0.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.84,
+        "Classic": 0.0,
+        "Hyperbolic": 1.56,
+        "Conflict": 0.0,
+        "Consensus": 1.94
+      }
+    },
+    {
+      "noise_level": 0.68,
+      "consensus_level": 0.32,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.26,
+        "Classic": 0.0,
+        "Hyperbolic": 0.32,
+        "Conflict": 0.0,
+        "Consensus": 0.34
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 0.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.5,
+        "Classic": 0.0,
+        "Hyperbolic": 1.98,
+        "Conflict": 0.0,
+        "Consensus": 2.08
+      }
+    },
+    {
+      "noise_level": 0.7,
+      "consensus_level": 0.3,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.28,
+        "Classic": 0.0,
+        "Hyperbolic": 0.28,
+        "Conflict": 0.0,
+        "Consensus": 0.3
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 0.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.6,
+        "Classic": 0.0,
+        "Hyperbolic": 1.86,
+        "Conflict": 0.0,
+        "Consensus": 1.8
+      }
+    },
+    {
+      "noise_level": 0.72,
+      "consensus_level": 0.28,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.3,
+        "Classic": 0.0,
+        "Hyperbolic": 0.16,
+        "Conflict": 0.0,
+        "Consensus": 0.26
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 0.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 3.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.94,
+        "Classic": 0.0,
+        "Hyperbolic": 1.42,
+        "Conflict": 0.0,
+        "Consensus": 1.64
+      }
+    },
+    {
+      "noise_level": 0.74,
+      "consensus_level": 0.26,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.28,
+        "Classic": 0.0,
+        "Hyperbolic": 0.16,
+        "Conflict": 0.0,
+        "Consensus": 0.24
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 0.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 2.98
+      },
+      "avg_weighted_score": {
+        "Borda": 1.94,
+        "Classic": 0.0,
+        "Hyperbolic": 1.36,
+        "Conflict": 0.0,
+        "Consensus": 1.68
+      }
+    },
+    {
+      "noise_level": 0.76,
+      "consensus_level": 0.24,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.28,
+        "Classic": 0.0,
+        "Hyperbolic": 0.24,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 0.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 2.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.78,
+        "Classic": 0.0,
+        "Hyperbolic": 1.54,
+        "Conflict": 0.0,
+        "Consensus": 1.08
+      }
+    },
+    {
+      "noise_level": 0.78,
+      "consensus_level": 0.22,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.28,
+        "Classic": 0.0,
+        "Hyperbolic": 0.24,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 0.0,
+        "Hyperbolic": 3.0,
+        "Conflict": 0.0,
+        "Consensus": 2.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.8,
+        "Classic": 0.0,
+        "Hyperbolic": 1.58,
+        "Conflict": 0.0,
+        "Consensus": 1.32
+      }
+    },
+    {
+      "noise_level": 0.8,
+      "consensus_level": 0.2,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.34,
+        "Classic": 0.0,
+        "Hyperbolic": 0.3,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 0.0,
+        "Hyperbolic": 2.0,
+        "Conflict": 0.0,
+        "Consensus": 1.0
+      },
+      "avg_weighted_score": {
+        "Borda": 1.98,
+        "Classic": 0.0,
+        "Hyperbolic": 1.58,
+        "Conflict": 0.0,
+        "Consensus": 0.4
+      }
+    },
+    {
+      "noise_level": 0.82,
+      "consensus_level": 0.18,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.36,
+        "Classic": 0.0,
+        "Hyperbolic": 0.36,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 0.0,
+        "Hyperbolic": 1.12,
+        "Conflict": 0.0,
+        "Consensus": 1.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.12,
+        "Classic": 0.0,
+        "Hyperbolic": 1.16,
+        "Conflict": 0.0,
+        "Consensus": 0.34
+      }
+    },
+    {
+      "noise_level": 0.84,
+      "consensus_level": 0.16,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.38,
+        "Classic": 0.0,
+        "Hyperbolic": 0.08,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_top3_accuracy": {
+        "Borda": 3.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.22,
+        "Conflict": 0.0,
+        "Consensus": 1.0
+      },
+      "avg_weighted_score": {
+        "Borda": 2.18,
+        "Classic": 0.0,
+        "Hyperbolic": 0.24,
+        "Conflict": 0.0,
+        "Consensus": 0.36
+      }
+    },
+    {
+      "noise_level": 0.86,
+      "consensus_level": 0.14,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.34,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_top3_accuracy": {
+        "Borda": 2.98,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.08
+      },
+      "avg_weighted_score": {
+        "Borda": 2.18,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.04
+      }
+    },
+    {
+      "noise_level": 0.88,
+      "consensus_level": 0.12,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_top3_accuracy": {
+        "Borda": 2.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_weighted_score": {
+        "Borda": 0.84,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      }
+    },
+    {
+      "noise_level": 0.9,
+      "consensus_level": 0.1,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_top3_accuracy": {
+        "Borda": 1.46,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_weighted_score": {
+        "Borda": 0.64,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      }
+    },
+    {
+      "noise_level": 0.92,
+      "consensus_level": 0.08,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_top3_accuracy": {
+        "Borda": 1.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_weighted_score": {
+        "Borda": 0.3,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      }
+    },
+    {
+      "noise_level": 0.94,
+      "consensus_level": 0.06,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_top3_accuracy": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_weighted_score": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      }
+    },
+    {
+      "noise_level": 0.96,
+      "consensus_level": 0.04,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_top3_accuracy": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_weighted_score": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      }
+    },
+    {
+      "noise_level": 0.98,
+      "consensus_level": 0.02,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_top3_accuracy": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_weighted_score": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      }
+    },
+    {
+      "noise_level": 1.0,
+      "consensus_level": 0.0,
+      "seeds_count": 50,
+      "avg_top1_accuracy": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_top3_accuracy": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      },
+      "avg_weighted_score": {
+        "Borda": 0.0,
+        "Classic": 0.0,
+        "Hyperbolic": 0.0,
+        "Conflict": 0.0,
+        "Consensus": 0.0
+      }
+    }
+  ]
+}

@@ -31,9 +31,17 @@ bin/
 ### Mac OS ###
 .DS_Store
 
+### Windows ###
+Thumbs.db
+
 ### Временные файлы ###
 RESULTS.md
 RESULTS copy.md
 collect_results.py
 sources.txt
-preflib/find_preflib/
+*.bak
+
+
+### Сгенерированные датасеты для экспериментов (большие) ###
+data/entropy/
+data/timing/

@@ -92,10 +92,30 @@ src/aggregation/
     AdaptiveWeightMode.java           # режимы адаптивного метода
     AdaptiveKemenySolver.java         # адаптивный решатель
     AdaptiveKemenyResult.java
+  experiments/                        # эксперименты для статьи
+    ExperimentFunctions.java          # сравнение весовых функций
+    ExperimentAdaptive.java           # тест адаптивных методов
+    ExperimentEntropyMulti.java       # устойчивость к ангажированным экспертам
+    ExperimentTiming.java             # замеры времени выполнения
   io/                                 # ввод-вывод
     JsonProfileReader.java
     ProfileDataset.java
     SimpleJsonParser.java
+
+visualization/                        # Python-скрипты для графиков
+  plot_entropy.py                     # график устойчивости к манипуляциям
+  plot_timing.py                      # график времени выполнения
+  requirements.txt                    # зависимости (matplotlib, numpy)
+
+results/                              # результаты экспериментов
+  entropy_multi.json                  # данные для графика устойчивости
+  timing.json                         # данные для графика времени
+  graph_entropy_accuracy.png          # график устойчивости
+  graph_timing.png                    # график времени
+  functions/                          # результаты ExperimentFunctions
+  adaptive/                           # результаты ExperimentAdaptive
+
+architecture.archimate                # ArchiMate диаграммы архитектуры
 ```
 
 ## Датасеты
@@ -141,6 +161,18 @@ python ranking_generator.py --preset top_consensus --seed 42 -o data/top_consens
 - `--clusters` — количество кластеров мнений
 - `--seed` — seed для воспроизводимости
 
+### Батч-генерация для экспериментов
+
+```bash
+# Серия датасетов для теста устойчивости к ангажированным экспертам
+# (30 альтернатив, 100 экспертов, 36 уровней × 100 seeds = 3600 датасетов)
+python ranking_generator.py --batch entropy
+
+# Серия датасетов для замера времени выполнения
+# (от 10 до 100 000 экспертов)
+python ranking_generator.py --batch timing
+```
+
 ### Конвертер PrefLib
 
 Для конвертации данных PrefLib в JSON используется скрипт `convert_preflib.py`.
@@ -163,6 +195,40 @@ python convert_preflib.py input.soc --dass
 ```bash
 python convert_preflib.py 00006-00000021.soc -o data/skate_conflict.json
 ```
+
+## Эксперименты
+
+### Запуск экспериментов (Java)
+
+```bash
+# Сравнение Borda + Classic + 5 весовых функций
+java -cp out aggregation.experiments.ExperimentFunctions data/skate_conflict.json
+
+# Тест адаптивных методов (Conflict Focus, Consensus Focus)
+java -cp out aggregation.experiments.ExperimentAdaptive data/skate_conflict.json
+
+# Устойчивость к ангажированным экспертам (требует data/entropy/)
+java -cp out aggregation.experiments.ExperimentEntropyMulti data/entropy
+
+# Замеры времени выполнения (требует data/timing/)
+java -cp out aggregation.experiments.ExperimentTiming data/timing
+```
+
+### Визуализация результатов (Python)
+
+```bash
+cd visualization
+
+# График устойчивости к ангажированным экспертам
+python plot_entropy.py
+
+# График времени выполнения
+python plot_timing.py
+```
+
+Результаты сохраняются в `results/`:
+- `graph_entropy_accuracy.png` — устойчивость методов к манипуляциям
+- `graph_timing.png` — зависимость времени от числа экспертов
 
 ## Результаты
 
@@ -192,6 +258,18 @@ python convert_preflib.py 00006-00000021.soc -o data/skate_conflict.json
 | **Hyperbolic** | **Angelis** | Warwick |
 
 **Вывод:** Hyperbolic (φ(k)=1/k) меняет победителя при большом числе альтернатив (25).
+
+### Устойчивость к ангажированным экспертам
+
+Эксперимент моделирует ситуацию, когда часть экспертов координированно продвигает определённые альтернативы (например, голосование с группами поддержки, онлайн-рейтинги с накрутками).
+
+![Устойчивость к манипуляциям](results/graph_entropy_accuracy.png)
+
+**Ключевые выводы:**
+- **Consensus Focus** показывает наилучшую устойчивость — опирается на позиции с высоким согласием экспертов
+- **Hyperbolic Kemeny** также демонстрирует высокую устойчивость
+- **Classic Kemeny** полностью теряет точность при >45-50% ангажированных
+- **Conflict Focus** неприменим в условиях манипуляций (усиливает влияние спорных позиций)
 
 ## Формат входных данных
 
@@ -284,3 +362,18 @@ java -cp out aggregation.AdaptiveKemenyDemo data/skate_conflict.json
 ```bash
 java -cp out aggregation.AggregatorTests
 ```
+
+## Архитектура
+
+Диаграммы архитектуры системы в формате ArchiMate находятся в файле `architecture.archimate`:
+- **Data Processing Pipeline** — пайплайн обработки данных
+- **System Architecture** — структура пакетов и классов
+
+## Автор
+
+**Гизатулин Артём Гайнанович** ([@Klagvar](https://github.com/Klagvar))  
+Санкт-Петербургский политехнический университет Петра Великого (СПбПУ)
+
+## Лицензия
+
+MIT License — см. файл [LICENSE](LICENSE).

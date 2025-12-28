@@ -1,0 +1,527 @@
+{
+  "dataset": "skate_conflict",
+  "title": "Worldjunior Men Qual A",
+  "alternatives": 18,
+  "rankings": 7,
+  "entropy_analysis": [
+    {
+      "position": 1,
+      "entropy": 0.5917,
+      "normalized": 0.2346,
+      "conflict_weight": 0.2346,
+      "consensus_weight": 0.7654
+    },
+    {
+      "position": 2,
+      "entropy": 2.2359,
+      "normalized": 0.8867,
+      "conflict_weight": 0.8867,
+      "consensus_weight": 0.1133
+    },
+    {
+      "position": 3,
+      "entropy": 1.8424,
+      "normalized": 0.7306,
+      "conflict_weight": 0.7306,
+      "consensus_weight": 0.2694
+    },
+    {
+      "position": 4,
+      "entropy": 1.8424,
+      "normalized": 0.7306,
+      "conflict_weight": 0.7306,
+      "consensus_weight": 0.2694
+    },
+    {
+      "position": 5,
+      "entropy": 1.8424,
+      "normalized": 0.7306,
+      "conflict_weight": 0.7306,
+      "consensus_weight": 0.2694
+    },
+    {
+      "position": 6,
+      "entropy": 2.5216,
+      "normalized": 1.0,
+      "conflict_weight": 1.0,
+      "consensus_weight": 0.0
+    },
+    {
+      "position": 7,
+      "entropy": 2.5216,
+      "normalized": 1.0,
+      "conflict_weight": 1.0,
+      "consensus_weight": 0.0
+    },
+    {
+      "position": 8,
+      "entropy": 1.6645,
+      "normalized": 0.6601,
+      "conflict_weight": 0.6601,
+      "consensus_weight": 0.3399
+    },
+    {
+      "position": 9,
+      "entropy": 2.2359,
+      "normalized": 0.8867,
+      "conflict_weight": 0.8867,
+      "consensus_weight": 0.1133
+    },
+    {
+      "position": 10,
+      "entropy": 2.2359,
+      "normalized": 0.8867,
+      "conflict_weight": 0.8867,
+      "consensus_weight": 0.1133
+    },
+    {
+      "position": 11,
+      "entropy": 2.2359,
+      "normalized": 0.8867,
+      "conflict_weight": 0.8867,
+      "consensus_weight": 0.1133
+    },
+    {
+      "position": 12,
+      "entropy": 1.8424,
+      "normalized": 0.7306,
+      "conflict_weight": 0.7306,
+      "consensus_weight": 0.2694
+    },
+    {
+      "position": 13,
+      "entropy": 1.3788,
+      "normalized": 0.5468,
+      "conflict_weight": 0.5468,
+      "consensus_weight": 0.4532
+    },
+    {
+      "position": 14,
+      "entropy": 1.8424,
+      "normalized": 0.7306,
+      "conflict_weight": 0.7306,
+      "consensus_weight": 0.2694
+    },
+    {
+      "position": 15,
+      "entropy": 1.8424,
+      "normalized": 0.7306,
+      "conflict_weight": 0.7306,
+      "consensus_weight": 0.2694
+    },
+    {
+      "position": 16,
+      "entropy": 1.3788,
+      "normalized": 0.5468,
+      "conflict_weight": 0.5468,
+      "consensus_weight": 0.4532
+    },
+    {
+      "position": 17,
+      "entropy": 1.5567,
+      "normalized": 0.6173,
+      "conflict_weight": 0.6173,
+      "consensus_weight": 0.3827
+    },
+    {
+      "position": 18,
+      "entropy": 0.0,
+      "normalized": 0.0,
+      "conflict_weight": 0.0,
+      "consensus_weight": 1.0
+    }
+  ],
+  "max_entropy": 2.5216,
+  "methods": [
+    {
+      "name": "Borda",
+      "distance": 0.0,
+      "ranking": [
+        {
+          "alternative": "Sergei Davydov",
+          "rank": 8
+        },
+        {
+          "alternative": "Lukas Rakowski",
+          "rank": 26
+        },
+        {
+          "alternative": "Yunfei Li",
+          "rank": 28
+        },
+        {
+          "alternative": "Vincent Restencourt",
+          "rank": 29
+        },
+        {
+          "alternative": "Matthew Davies",
+          "rank": 32
+        },
+        {
+          "alternative": "Timothy Goebel",
+          "rank": 36
+        },
+        {
+          "alternative": "Kyu Hyun Lee",
+          "rank": 47
+        },
+        {
+          "alternative": "Juraj Sviatko",
+          "rank": 60
+        },
+        {
+          "alternative": "Angelo Dolfini",
+          "rank": 64
+        },
+        {
+          "alternative": "Ivan Dinev",
+          "rank": 67
+        },
+        {
+          "alternative": "Ben Ferreira",
+          "rank": 71
+        },
+        {
+          "alternative": "Vakhtang Murvanidze",
+          "rank": 80
+        },
+        {
+          "alternative": "Christian Horvath",
+          "rank": 92
+        },
+        {
+          "alternative": "Maurice Lim",
+          "rank": 98
+        },
+        {
+          "alternative": "Miguel Alegre",
+          "rank": 109
+        },
+        {
+          "alternative": "Michael Amentas",
+          "rank": 111
+        },
+        {
+          "alternative": "Joon Ho Park",
+          "rank": 113
+        },
+        {
+          "alternative": "Panagiotis Markouizos",
+          "rank": 126
+        }
+      ]
+    },
+    {
+      "name": "Classic",
+      "distance": 138.0,
+      "ranking": [
+        {
+          "alternative": "Sergei Davydov",
+          "rank": 1
+        },
+        {
+          "alternative": "Yunfei Li",
+          "rank": 2
+        },
+        {
+          "alternative": "Lukas Rakowski",
+          "rank": 3
+        },
+        {
+          "alternative": "Matthew Davies",
+          "rank": 4
+        },
+        {
+          "alternative": "Vincent Restencourt",
+          "rank": 5
+        },
+        {
+          "alternative": "Timothy Goebel",
+          "rank": 6
+        },
+        {
+          "alternative": "Kyu Hyun Lee",
+          "rank": 7
+        },
+        {
+          "alternative": "Juraj Sviatko",
+          "rank": 8
+        },
+        {
+          "alternative": "Angelo Dolfini",
+          "rank": 9
+        },
+        {
+          "alternative": "Ivan Dinev",
+          "rank": 10
+        },
+        {
+          "alternative": "Ben Ferreira",
+          "rank": 11
+        },
+        {
+          "alternative": "Vakhtang Murvanidze",
+          "rank": 12
+        },
+        {
+          "alternative": "Christian Horvath",
+          "rank": 13
+        },
+        {
+          "alternative": "Maurice Lim",
+          "rank": 14
+        },
+        {
+          "alternative": "Michael Amentas",
+          "rank": 15
+        },
+        {
+          "alternative": "Joon Ho Park",
+          "rank": 16
+        },
+        {
+          "alternative": "Miguel Alegre",
+          "rank": 17
+        },
+        {
+          "alternative": "Panagiotis Markouizos",
+          "rank": 18
+        }
+      ]
+    },
+    {
+      "name": "Hyperbolic",
+      "distance": 24.6592,
+      "ranking": [
+        {
+          "alternative": "Sergei Davydov",
+          "rank": 1
+        },
+        {
+          "alternative": "Lukas Rakowski",
+          "rank": 2
+        },
+        {
+          "alternative": "Vincent Restencourt",
+          "rank": 3
+        },
+        {
+          "alternative": "Matthew Davies",
+          "rank": 4
+        },
+        {
+          "alternative": "Timothy Goebel",
+          "rank": 5
+        },
+        {
+          "alternative": "Yunfei Li",
+          "rank": 6
+        },
+        {
+          "alternative": "Kyu Hyun Lee",
+          "rank": 7
+        },
+        {
+          "alternative": "Juraj Sviatko",
+          "rank": 8
+        },
+        {
+          "alternative": "Ivan Dinev",
+          "rank": 9
+        },
+        {
+          "alternative": "Angelo Dolfini",
+          "rank": 10
+        },
+        {
+          "alternative": "Ben Ferreira",
+          "rank": 11
+        },
+        {
+          "alternative": "Vakhtang Murvanidze",
+          "rank": 12
+        },
+        {
+          "alternative": "Christian Horvath",
+          "rank": 13
+        },
+        {
+          "alternative": "Maurice Lim",
+          "rank": 14
+        },
+        {
+          "alternative": "Michael Amentas",
+          "rank": 15
+        },
+        {
+          "alternative": "Joon Ho Park",
+          "rank": 16
+        },
+        {
+          "alternative": "Miguel Alegre",
+          "rank": 17
+        },
+        {
+          "alternative": "Panagiotis Markouizos",
+          "rank": 18
+        }
+      ]
+    },
+    {
+      "name": "Conflict",
+      "distance": 106.0543,
+      "ranking": [
+        {
+          "alternative": "Yunfei Li",
+          "rank": 1
+        },
+        {
+          "alternative": "Sergei Davydov",
+          "rank": 2
+        },
+        {
+          "alternative": "Lukas Rakowski",
+          "rank": 3
+        },
+        {
+          "alternative": "Matthew Davies",
+          "rank": 4
+        },
+        {
+          "alternative": "Vincent Restencourt",
+          "rank": 5
+        },
+        {
+          "alternative": "Timothy Goebel",
+          "rank": 6
+        },
+        {
+          "alternative": "Kyu Hyun Lee",
+          "rank": 7
+        },
+        {
+          "alternative": "Juraj Sviatko",
+          "rank": 8
+        },
+        {
+          "alternative": "Ivan Dinev",
+          "rank": 9
+        },
+        {
+          "alternative": "Angelo Dolfini",
+          "rank": 10
+        },
+        {
+          "alternative": "Ben Ferreira",
+          "rank": 11
+        },
+        {
+          "alternative": "Vakhtang Murvanidze",
+          "rank": 12
+        },
+        {
+          "alternative": "Christian Horvath",
+          "rank": 13
+        },
+        {
+          "alternative": "Maurice Lim",
+          "rank": 14
+        },
+        {
+          "alternative": "Michael Amentas",
+          "rank": 15
+        },
+        {
+          "alternative": "Joon Ho Park",
+          "rank": 16
+        },
+        {
+          "alternative": "Panagiotis Markouizos",
+          "rank": 17
+        },
+        {
+          "alternative": "Miguel Alegre",
+          "rank": 18
+        }
+      ]
+    },
+    {
+      "name": "Consensus",
+      "distance": 25.4663,
+      "ranking": [
+        {
+          "alternative": "Sergei Davydov",
+          "rank": 1
+        },
+        {
+          "alternative": "Lukas Rakowski",
+          "rank": 2
+        },
+        {
+          "alternative": "Vincent Restencourt",
+          "rank": 3
+        },
+        {
+          "alternative": "Matthew Davies",
+          "rank": 4
+        },
+        {
+          "alternative": "Timothy Goebel",
+          "rank": 5
+        },
+        {
+          "alternative": "Yunfei Li",
+          "rank": 6
+        },
+        {
+          "alternative": "Kyu Hyun Lee",
+          "rank": 7
+        },
+        {
+          "alternative": "Juraj Sviatko",
+          "rank": 8
+        },
+        {
+          "alternative": "Angelo Dolfini",
+          "rank": 9
+        },
+        {
+          "alternative": "Ivan Dinev",
+          "rank": 10
+        },
+        {
+          "alternative": "Ben Ferreira",
+          "rank": 11
+        },
+        {
+          "alternative": "Vakhtang Murvanidze",
+          "rank": 12
+        },
+        {
+          "alternative": "Christian Horvath",
+          "rank": 13
+        },
+        {
+          "alternative": "Maurice Lim",
+          "rank": 14
+        },
+        {
+          "alternative": "Michael Amentas",
+          "rank": 15
+        },
+        {
+          "alternative": "Joon Ho Park",
+          "rank": 16
+        },
+        {
+          "alternative": "Miguel Alegre",
+          "rank": 17
+        },
+        {
+          "alternative": "Panagiotis Markouizos",
+          "rank": 18
+        }
+      ]
+    }
+  ]
+}

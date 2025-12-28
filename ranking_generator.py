@@ -8,16 +8,19 @@
 - Кластеры мнений (группы экспертов с похожими предпочтениями)
 
 Использование:
-    python ranking_generator.py --alternatives 10 --experts 20 --consensus 0.5
+    python ranking_generator.py --preset high_consensus
     python ranking_generator.py -a 10 -e 20 -c 0.7 --position top -o data.json
-    python ranking_generator.py --preset polarized
+    
+Батч-генерация для экспериментов:
+    python ranking_generator.py --batch entropy    # Серия с разной энтропией
+    python ranking_generator.py --batch timing     # Серия для замеров времени
 """
 
 import argparse
 import json
 import random
 import numpy as np
-from typing import List, Tuple, Optional
+from typing import List, Optional
 from pathlib import Path
 
 
@@ -98,7 +101,6 @@ class RankingGenerator:
             else:
                 # Остальные — случайные перестановки с частичным сохранением
                 new_center = base.copy()
-                # Перемешиваем часть
                 swap_count = len(base) // 2
                 for _ in range(swap_count):
                     i1, i2 = random.sample(range(len(base)), 2)
@@ -108,55 +110,38 @@ class RankingGenerator:
         return centers
     
     def _get_position_weight(self, position: int) -> float:
-        """
-        Возвращает вес позиции для определения вероятности изменения.
-        
-        Чем выше вес — тем больше вероятность изменения (меньше консенсус).
-        """
+        """Возвращает вес позиции для определения вероятности изменения."""
         n = self.num_alternatives
-        normalized_pos = position / (n - 1) if n > 1 else 0  # 0 = топ, 1 = низ
+        normalized_pos = position / (n - 1) if n > 1 else 0
         
         if self.consensus_position == "uniform":
             return 1.0
         elif self.consensus_position == "top":
-            # Консенсус на топе: маленький вес вверху, большой внизу
             return 0.2 + 0.8 * normalized_pos
         elif self.consensus_position == "bottom":
-            # Консенсус внизу: большой вес вверху, маленький внизу
             return 1.0 - 0.8 * normalized_pos
         return 1.0
     
     def _perturb_ranking(self, base: List[str]) -> List[str]:
-        """
-        Вносит случайные изменения в ранжировку с учётом уровня консенсуса
-        и распределения по позициям.
-        """
+        """Вносит случайные изменения в ранжировку."""
         result = base.copy()
         n = len(result)
         
-        # Количество свопов зависит от уровня консенсуса
-        # consensus_level = 1 -> 0 свопов
-        # consensus_level = 0 -> много свопов (полный shuffle)
-        max_swaps = n * (n - 1) // 2  # Максимум свопов для полной перестановки
+        max_swaps = n * (n - 1) // 2
         num_swaps = int(max_swaps * (1 - self.consensus_level) * 0.5)
         
         for _ in range(num_swaps):
-            # Выбираем позицию с учётом весов
             weights = [self._get_position_weight(i) for i in range(n - 1)]
             total = sum(weights)
             if total == 0:
                 break
             probs = [w / total for w in weights]
             
-            # Выбираем позицию для свопа
             pos = np.random.choice(range(n - 1), p=probs)
             
-            # Меняем с соседом или случайным элементом
             if random.random() < 0.7:
-                # Своп с соседом (более реалистично)
                 swap_pos = pos + 1
             else:
-                # Своп с случайным
                 swap_pos = random.randint(0, n - 1)
             
             result[pos], result[swap_pos] = result[swap_pos], result[pos]
@@ -173,28 +158,19 @@ class RankingGenerator:
         
         for i in range(self.num_clusters - 1):
             if i == 0:
-                # Первый кластер получает долю по cluster_balance
                 count = int(self.num_experts * self.cluster_balance)
             else:
-                # Остальные делят поровну
                 count = remaining // (self.num_clusters - i)
             
             assignments.extend([i] * count)
             remaining -= count
         
-        # Последний кластер получает остаток
         assignments.extend([self.num_clusters - 1] * remaining)
-        
         random.shuffle(assignments)
         return assignments
     
     def generate(self) -> List[dict]:
-        """
-        Генерирует ранжировки.
-        
-        Returns:
-            Список ранжировок в формате [{"order": [...], "voters": 1}, ...]
-        """
+        """Генерирует ранжировки."""
         self.cluster_centers = self._generate_cluster_centers()
         cluster_assignments = self._assign_experts_to_clusters()
         
@@ -206,7 +182,6 @@ class RankingGenerator:
             ranking = self._perturb_ranking(base)
             rankings_raw.append(tuple(ranking))
         
-        # Группируем одинаковые ранжировки
         from collections import Counter
         ranking_counts = Counter(rankings_raw)
         
@@ -217,9 +192,15 @@ class RankingGenerator:
         
         return self.rankings
     
+    def get_ground_truth(self) -> List[str]:
+        """Возвращает эталонное ранжирование (центр первого кластера)."""
+        if not self.cluster_centers:
+            raise ValueError("Сначала вызовите generate()")
+        return self.cluster_centers[0]
+    
     def to_dict(self) -> dict:
         """Преобразует в словарь для JSON."""
-        return {
+        result = {
             "metadata": {
                 "generator": "RankingGenerator",
                 "num_alternatives": self.num_alternatives,
@@ -233,9 +214,15 @@ class RankingGenerator:
             "alternatives": self.alternatives,
             "rankings": self.rankings,
         }
+        
+        if self.cluster_centers:
+            result["ground_truth"] = self.cluster_centers[0]
+        
+        return result
     
     def export_json(self, filepath: str):
         """Экспортирует в JSON файл."""
+        Path(filepath).parent.mkdir(parents=True, exist_ok=True)
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(self.to_dict(), f, indent=2, ensure_ascii=False)
         print(f"Сохранено: {filepath}")
@@ -251,9 +238,7 @@ class RankingGenerator:
         print(f"Уникальных ранжировок: {len(self.rankings)}")
         
         if self.cluster_centers:
-            print(f"\nЦентры кластеров:")
-            for i, center in enumerate(self.cluster_centers):
-                print(f"  Кластер {i+1}: {' > '.join(center[:3])}...")
+            print(f"\nЭталон (ground_truth): {' > '.join(self.cluster_centers[0][:5])}...")
 
 
 # Пресеты для типичных сценариев
@@ -298,22 +283,190 @@ PRESETS = {
 }
 
 
+def generate_entropy_series(output_dir: str = "data/entropy",
+                            num_alternatives: int = 30,
+                            num_experts: int = 100,
+                            num_seeds: int = 50,
+                            noise_step: float = 0.02):
+    """
+    Генерирует датасеты для графика "Доля предвзятых экспертов → Точность".
+    
+    Сценарий:
+    - A1, A2, A3 = "настоящие лидеры" (стабильно в топ-6 у ВСЕХ)
+    - A28, A29, A30 = "аутсайдеры" (в конце у нормальных, в топ-3 у предвзятых)
+    
+    Нормальные эксперты (100-X%):
+    - A1, A2, A3 на позициях 1-3 (случайный порядок)
+    - A28, A29, A30 в конце
+    
+    Предвзятые эксперты (X%):
+    - A28, A29, A30 строго на 1, 2, 3
+    - A1, A2, A3 на позициях 4, 5, 6
+    
+    При X > 33%: A28 имеет больше первых мест чем A1 → Classic ошибается.
+    Hyperbolic видит что A1, A2, A3 стабильнее в топе у 100% → выбирает их.
+    """
+    Path(output_dir).mkdir(parents=True, exist_ok=True)
+    
+    # Удаляем старые файлы
+    import shutil
+    for item in Path(output_dir).iterdir():
+        if item.is_dir():
+            shutil.rmtree(item)
+        else:
+            item.unlink()
+    
+    noise_levels = np.arange(0.0, 1.01, noise_step)
+    
+    n = num_alternatives  # 30 альтернатив
+    alternatives = [f"A{i}" for i in range(1, n + 1)]
+    ground_truth = ["A1", "A2", "A3"]  # Настоящие лидеры
+    outsiders = ["A28", "A29", "A30"]  # Аутсайдеры (последние 3)
+    middle = [f"A{i}" for i in range(4, 28)]  # A4-A27: середнячки
+    
+    print(f"=== Генерация: предвзятые эксперты ===")
+    print(f"Директория: {output_dir}")
+    print(f"Альтернатив: {n}, Экспертов: {num_experts}")
+    print(f"Лидеры (ground truth): {ground_truth}")
+    print(f"Аутсайдеры: {outsiders}")
+    print(f"Нормальные: A1,A2,A3 в топ-3, аутсайдеры в конце")
+    print(f"Предвзятые: A28,A29,A30 в топ-3, A1,A2,A3 на 4,5,6")
+    print(f"Уровней: {len(noise_levels)}, Seed'ов: {num_seeds}")
+    print()
+    
+    for noise in noise_levels:
+        level_dir = Path(output_dir) / f"n{noise:.2f}"
+        level_dir.mkdir(parents=True, exist_ok=True)
+        
+        for seed_i in range(num_seeds):
+            np.random.seed(seed_i)
+            random.seed(seed_i)
+            
+            rankings_raw = []
+            
+            num_biased = int(num_experts * noise)
+            num_normal = num_experts - num_biased
+            
+            # Нормальные эксперты: A1, A2, A3 в топ-3, аутсайдеры в конце
+            for _ in range(num_normal):
+                # Топ-3: A1, A2, A3 в случайном порядке
+                top = ground_truth.copy()
+                np.random.shuffle(top)
+                
+                # Середина: A4-A27 в случайном порядке
+                mid = middle.copy()
+                np.random.shuffle(mid)
+                
+                # Конец: A28, A29, A30 в случайном порядке
+                bottom = outsiders.copy()
+                np.random.shuffle(bottom)
+                
+                order = top + mid + bottom
+                rankings_raw.append(order)
+            
+            # Предвзятые эксперты: A28, A29, A30 в топ-3, A1, A2, A3 на 4, 5, 6
+            for _ in range(num_biased):
+                # Топ-3: A28, A29, A30 (фиксированный порядок!)
+                top = outsiders.copy()  # A28 всегда первый
+                
+                # Позиции 4-6: A1, A2, A3 в случайном порядке
+                second_tier = ground_truth.copy()
+                np.random.shuffle(second_tier)
+                
+                # Остальные: A4-A27 в случайном порядке
+                rest = middle.copy()
+                np.random.shuffle(rest)
+                
+                order = top + second_tier + rest
+                rankings_raw.append(order)
+            
+            # Агрегируем одинаковые
+            from collections import Counter
+            ranking_counts = Counter(tuple(r) for r in rankings_raw)
+            
+            data = {
+                "metadata": {
+                    "generator": "biased_experts",
+                    "num_alternatives": n,
+                    "num_experts": num_experts,
+                    "noise_level": float(noise),
+                    "seed": seed_i,
+                },
+                "alternatives": alternatives,
+                "ground_truth": ground_truth,  # Только A1, A2, A3
+                "rankings": [
+                    {"order": list(r), "voters": count}
+                    for r, count in ranking_counts.items()
+                ]
+            }
+            
+            filepath = level_dir / f"seed_{seed_i:03d}.json"
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
+        
+        print(f"  noise={noise:.0%}: {num_seeds} датасетов")
+    
+    print(f"\nГотово!")
+
+
+
+
+def generate_timing_series(output_dir: str = "data/timing",
+                           num_alternatives: int = 10,
+                           seed: int = 42):
+    """
+    Генерирует серию датасетов с разным количеством экспертов для замера времени.
+    """
+    Path(output_dir).mkdir(parents=True, exist_ok=True)
+    
+    expert_counts = [10, 50, 100, 500, 1000, 5000, 10000, 50000, 100000]
+    
+    print(f"=== Генерация серии для замера времени ===")
+    print(f"Директория: {output_dir}")
+    print(f"Датасетов: {len(expert_counts)}")
+    print()
+    
+    for num_experts in expert_counts:
+        generator = RankingGenerator(
+            num_alternatives=num_alternatives,
+            num_experts=num_experts,
+            consensus_level=0.5,
+            consensus_position="uniform",
+            seed=seed,
+        )
+        generator.generate()
+        
+        filename = f"timing_e{num_experts:06d}.json"
+        filepath = Path(output_dir) / filename
+        generator.export_json(str(filepath))
+    
+    print(f"\nГотово! Создано {len(expert_counts)} датасетов")
+
+
+
+
 def main():
     parser = argparse.ArgumentParser(
         description='Генератор ранжировок для тестирования методов агрегации',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Пресеты:
-  high_consensus  - Высокий консенсус (судейство)
-  low_consensus   - Низкий консенсус (субъективные вкусы)
-  top_consensus   - Согласие на топе, споры внизу
+  high_consensus   - Высокий консенсус (судейство)
+  low_consensus    - Низкий консенсус (субъективные вкусы)
+  top_consensus    - Согласие на топе, споры внизу
   bottom_consensus - Споры на топе, согласие внизу
-  polarized       - Две противоположные группы
-  three_factions  - Три фракции
+  polarized        - Две противоположные группы
+  three_factions   - Три фракции
+
+Батч-генерация:
+  --batch entropy       - Серия с консенсусным топ-3 (100 seed'ов) → data/entropy/
+  --batch timing        - Серия для замера времени → data/timing/
 
 Примеры:
-  python ranking_generator.py --preset polarized -o polarized.json
+  python ranking_generator.py --preset high_consensus
+  python ranking_generator.py --preset polarized -o data/standard/polarized.json
   python ranking_generator.py -a 10 -e 30 -c 0.5 --position bottom
+  python ranking_generator.py --batch entropy
         """
     )
     
@@ -329,18 +482,28 @@ def main():
                         help='Количество кластеров мнений (default: 1)')
     parser.add_argument('--balance', type=float, default=0.5,
                         help='Баланс между кластерами (default: 0.5)')
-    parser.add_argument('--seed', type=int, default=None,
-                        help='Seed для воспроизводимости')
+    parser.add_argument('--seed', type=int, default=42,
+                        help='Seed для воспроизводимости (default: 42)')
     parser.add_argument('--preset', choices=list(PRESETS.keys()),
                         help='Использовать пресет настроек')
     parser.add_argument('-o', '--output', type=str, default=None,
                         help='Выходной JSON файл')
-    parser.add_argument('--names', type=str, default=None,
-                        help='Имена альтернатив через запятую')
+    parser.add_argument('--batch', choices=['entropy', 'timing'],
+                        help='Батч-генерация для экспериментов')
+    parser.add_argument('--num-seeds', type=int, default=100,
+                        help='Количество seed\'ов для entropy-multi (default: 100)')
     
     args = parser.parse_args()
     
-    # Применяем пресет если указан
+    # Батч-генерация
+    if args.batch == 'entropy':
+        generate_entropy_series(num_seeds=args.num_seeds)
+        return
+    elif args.batch == 'timing':
+        generate_timing_series(seed=args.seed)
+        return
+    
+    # Параметры генерации
     kwargs = {
         "num_alternatives": args.alternatives,
         "num_experts": args.experts,
@@ -351,24 +514,14 @@ def main():
         "seed": args.seed,
     }
     
+    # Применяем пресет если указан
     if args.preset:
         preset = PRESETS[args.preset]
         print(f"Используется пресет '{args.preset}': {preset['description']}")
-        for key, value in preset.items():
-            if key != "description" and key in kwargs:
-                kwargs[key.replace("consensus_position", "consensus_position")] = value
-        # Применяем параметры пресета
-        if "consensus_level" in preset:
-            kwargs["consensus_level"] = preset["consensus_level"]
-        if "consensus_position" in preset:
-            kwargs["consensus_position"] = preset["consensus_position"]
-        if "num_clusters" in preset:
-            kwargs["num_clusters"] = preset["num_clusters"]
-        if "cluster_balance" in preset:
-            kwargs["cluster_balance"] = preset["cluster_balance"]
-    
-    if args.names:
-        kwargs["alternative_names"] = [n.strip() for n in args.names.split(',')]
+        kwargs["consensus_level"] = preset["consensus_level"]
+        kwargs["consensus_position"] = preset["consensus_position"]
+        kwargs["num_clusters"] = preset.get("num_clusters", 1)
+        kwargs["cluster_balance"] = preset.get("cluster_balance", 0.5)
     
     # Генерация
     generator = RankingGenerator(**kwargs)
@@ -383,13 +536,11 @@ def main():
     # Сохранение
     if args.output:
         generator.export_json(args.output)
+    elif args.preset:
+        generator.export_json(f"data/standard/{args.preset}.json")
     else:
-        # По умолчанию сохраняем в data/
-        Path('data').mkdir(exist_ok=True)
-        filename = f"data/generated_{args.preset or 'custom'}.json"
-        generator.export_json(filename)
+        generator.export_json("data/generated_custom.json")
 
 
 if __name__ == '__main__':
     main()
-

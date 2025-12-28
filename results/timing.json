@@ -1,0 +1,125 @@
+{
+  "experiment": "timing",
+  "warmup_runs": 2,
+  "measurement_runs": 3,
+  "datasets_count": 9,
+  "results": [
+    {
+      "file": "timing_e000010.json",
+      "alternatives": 10,
+      "experts": 10,
+      "unique_rankings": 10,
+      "timing_ms": {
+        "Borda": 0.08,
+        "Classic": 0.29,
+        "Hyperbolic": 0.26,
+        "Conflict": 0.28,
+        "Consensus": 0.27
+      }
+    },
+    {
+      "file": "timing_e000050.json",
+      "alternatives": 10,
+      "experts": 50,
+      "unique_rankings": 50,
+      "timing_ms": {
+        "Borda": 0.2,
+        "Classic": 0.52,
+        "Hyperbolic": 0.56,
+        "Conflict": 0.71,
+        "Consensus": 0.43
+      }
+    },
+    {
+      "file": "timing_e000100.json",
+      "alternatives": 10,
+      "experts": 100,
+      "unique_rankings": 100,
+      "timing_ms": {
+        "Borda": 0.18,
+        "Classic": 0.61,
+        "Hyperbolic": 0.22,
+        "Conflict": 0.8,
+        "Consensus": 0.45
+      }
+    },
+    {
+      "file": "timing_e000500.json",
+      "alternatives": 10,
+      "experts": 500,
+      "unique_rankings": 499,
+      "timing_ms": {
+        "Borda": 0.9,
+        "Classic": 1.2,
+        "Hyperbolic": 0.61,
+        "Conflict": 1.26,
+        "Consensus": 1.29
+      }
+    },
+    {
+      "file": "timing_e001000.json",
+      "alternatives": 10,
+      "experts": 1000,
+      "unique_rankings": 995,
+      "timing_ms": {
+        "Borda": 0.68,
+        "Classic": 1.09,
+        "Hyperbolic": 1.11,
+        "Conflict": 2.51,
+        "Consensus": 2.36
+      }
+    },
+    {
+      "file": "timing_e005000.json",
+      "alternatives": 10,
+      "experts": 5000,
+      "unique_rankings": 4896,
+      "timing_ms": {
+        "Borda": 3.52,
+        "Classic": 13.34,
+        "Hyperbolic": 13.23,
+        "Conflict": 10.05,
+        "Consensus": 10.24
+      }
+    },
+    {
+      "file": "timing_e010000.json",
+      "alternatives": 10,
+      "experts": 10000,
+      "unique_rankings": 9632,
+      "timing_ms": {
+        "Borda": 6.11,
+        "Classic": 12.35,
+        "Hyperbolic": 12.63,
+        "Conflict": 70.32,
+        "Consensus": 75.49
+      }
+    },
+    {
+      "file": "timing_e050000.json",
+      "alternatives": 10,
+      "experts": 50000,
+      "unique_rankings": 43469,
+      "timing_ms": {
+        "Borda": 24.17,
+        "Classic": 199.77,
+        "Hyperbolic": 235.0,
+        "Conflict": 267.69,
+        "Consensus": 256.51
+      }
+    },
+    {
+      "file": "timing_e100000.json",
+      "alternatives": 10,
+      "experts": 100000,
+      "unique_rankings": 79847,
+      "timing_ms": {
+        "Borda": 29.61,
+        "Classic": 476.6,
+        "Hyperbolic": 502.48,
+        "Conflict": 619.42,
+        "Consensus": 590.15
+      }
+    }
+  ]
+}
